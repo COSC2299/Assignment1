@@ -1,0 +1,30 @@
+package src;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Dimension defdim = new Dimension(750,100);
+		JFrame frame = new JFrame("Window Title"); //sets the window title
+		// TODO Auto-generated method stub
+		System.out.println("Ayyyy sup fam");
+
+		WindowAdapter windowadapter = new WindowAdapter(){
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		};
+		frame.addWindowListener(windowadapter);
+
+		JLabel jlabel = new JLabel("Yao Ming is the greatest center to ever play in the NBA.", SwingConstants.CENTER);
+		jlabel.setPreferredSize(defdim);
+		
+		frame.getContentPane().add(jlabel, BorderLayout.CENTER);
+		frame.setSize(defdim);
+		frame.setVisible(true);
+
+	}
+
+}
