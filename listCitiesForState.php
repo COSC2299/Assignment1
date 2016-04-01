@@ -1,3 +1,5 @@
+<?php include 'header.php'; ?>
+<?php include 'search.php'; ?>
 <a href="listStates.php">States</a><br/>
 <?php
 	$string = file_get_contents('stations.json');
@@ -5,7 +7,7 @@
 
 	//print_r($stations);
 	$selectedState = $_GET['s'];
-	
+
 	echo '<strong>'.$selectedState.'</strong><br/>';
 	foreach ($stations as $state) {
 		# code...

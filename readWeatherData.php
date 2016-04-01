@@ -1,9 +1,19 @@
+<?php include 'header.php'; ?>
+<?php include 'search.php'; ?>
 <a href="listStates.php">States</a><br/>
 <?php
 
 	$selectedState = $_GET['s'];
 	$selectedCity = $_GET['c'];
 	$selectedCity = str_replace("%20", " ", $selectedCity);
+	$selectedCity = str_replace("+", " ", $selectedCity);
+
+	$delim = strpos($selectedCity, "-");
+	
+	if($delim > 0 && !isset($selectedState)) {
+		$selectedState = substr($selectedCity, $delim + 2);
+		$selectedCity = substr($selectedCity, 0, $delim - 1);
+	}
 
 	echo '<a href="listCitiesForState.php?s='.$selectedState.'">'.$selectedState.'</a><br/>';
 
@@ -45,7 +55,7 @@
 		$minute = substr($date, 10, 2);
 		echo 'Date: '.$day.'/'.$month.'/'.$year.', ';
 		echo 'Time: '.$hour.':'.$minute.', ';
-		echo 'Temp: '.$station['apparent_t'].', ';
+		echo 'Temp: '.$station['air_temp'].', ';
 		echo 'Cloud: '.$station['cloud'].'<br />';
 
 	}
