@@ -118,19 +118,6 @@ strong{
 
 /* End Miscellaneous */
 
-/* Images */
-
-.keilor_photo{
-   width: 80%;
-   margin-left: 10%;
-}
-
-#ssl_logo{
-   margin-left: 160px;
-}
-
-/* End Images */
-
 /* Navigation */
 
 a:link { 
@@ -199,82 +186,6 @@ a:active {
 }
 
 /* End Side Bar */
-
-/* Book an Appointment Form */
-
-#appointment_container{
-   width: 90%;
-   margin: auto;
-}
-
-#appointment_form{
-   background-color: rgb(206,227,240);
-   height:500px;
-   padding: 1%;
-}
-
-#appointment_title{
-   font-size: 20px;
-   text-align: center;
-   margin: 0px;
-   padding: 15px 0px;
-   border: solid 1px;
-   border-color: rgb(193,193,193);
-}
-
-#appointment_title_box{
-   background-color: white;
-}
-
-#appointment_instructions{
-   padding: 10px;
-}
-
-fieldset{
-   border-color: rgb(193,193,193);
-   border-radius: 6px;
-   text-align: center;
-}
-
-legend{
-   font-size: 18px;
-   font-family: 'Nunito', sans-serif;
-   color: rgb(44,61,77);
-}
-
-.appointment_text{
-   font-family: 'Nunito', sans-serif;
-   font-size: 16px;
-   color: rgb(44,61,77);
-   text-align: center;
-}
-
-#appointment_button_box{
-
-}
-
-.appointment_field{
-   font-family: 'Nunito', sans-serif;
-   font-size: 14px;
-   text-align: center;
-   width: 270px;
-   border-radius: 8px;
-}
-
-.appointment_button{
-   color: white;
-   font-family: 'Nunito', sans-serif;
-   font-size: 12px;
-   background-color: rgb(48,99,186);
-   border-radius: 8px;
-   padding: 5px;
-   position: relative;
-   left: 120px;
-}
-
-/* End Appointment Form */
-
-/* End Book an Appointment Form */
 
 /* Footer */
 
