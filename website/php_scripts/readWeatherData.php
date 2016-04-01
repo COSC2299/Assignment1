@@ -1,10 +1,7 @@
-<?php include 'header.php'; ?>
 <?php include 'search.php'; ?>
-<a href="listStates.php">States</a><br/>
+<a href="state.php">States</a><br/>
 <?php
 
-	$selectedState = $_GET['s'];
-	$selectedCity = $_GET['c'];
 	$selectedCity = str_replace("%20", " ", $selectedCity);
 	$selectedCity = str_replace("+", " ", $selectedCity);
 
@@ -17,7 +14,7 @@
 
 	echo '<a href="listCitiesForState.php?s='.$selectedState.'">'.$selectedState.'</a><br/>';
 
-	$states = json_decode(file_get_contents('stations.json'), true);
+	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);
 
 	$url = "";
 
@@ -68,3 +65,4 @@
 	}
 
 ?>
+</table>

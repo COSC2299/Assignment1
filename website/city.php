@@ -23,7 +23,12 @@
             <br/>
             <br/>
             <div id="home_info">
-               <?php include 'php_scripts/listStates.php'; ?>
+               <?php 
+                     $selectedState = $_GET['s'];
+                     $selectedCity = $_GET['c'];
+                     include 'php_scripts/readWeatherData.php'; 
+
+                  ?>
             </div>
             <br/>
             <br/>

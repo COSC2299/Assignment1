@@ -23,7 +23,13 @@
             <br/>
             <br/>
             <div id="home_info">
-               <?php include 'php_scripts/listStates.php'; ?>
+               <?php 
+                     $selectedState = $_GET['s'];
+                     //echo $state;
+                     //dirname(__DIR__).'/
+                     include 'php_scripts/listCitiesForState.php'; 
+
+                  ?>
             </div>
             <br/>
             <br/>

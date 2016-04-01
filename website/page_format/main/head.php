@@ -16,7 +16,9 @@
       console.log(<? echo json_encode($_GET); ?>);
       console.log(<? echo json_encode($_COOKIE); ?>);
    </script>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
    <script type="text/javascript">
       $(document).ready(function(){
          $("#attention_bar_close").click(function(){
