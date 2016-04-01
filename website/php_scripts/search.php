@@ -9,7 +9,7 @@
   });
   </script>
 
- <form action="readWeatherData.php" method="get">
+ <form action="city.php" method="get">
   <div class="ui-widget">
     <label for="tags">Search: </label>
     <input id="tags" name="c">

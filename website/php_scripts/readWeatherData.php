@@ -1,5 +1,5 @@
 <?php include 'search.php'; ?>
-<a href="state.php">States</a><br/>
+<a href="index.php">States</a><br/>
 <?php
 
 	$selectedCity = str_replace("%20", " ", $selectedCity);
@@ -12,7 +12,7 @@
 		$selectedCity = substr($selectedCity, 0, $delim - 1);
 	}
 
-	echo '<a href="listCitiesForState.php?s='.$selectedState.'">'.$selectedState.'</a><br/>';
+	echo '<a href="state.php?s='.$selectedState.'">'.$selectedState.'</a><br/>';
 
 	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);
 
