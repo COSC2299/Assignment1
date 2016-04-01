@@ -1,0 +1,292 @@
+body{
+   width: 100%;
+   min-width: 1000px;
+   max-width: 2000px;
+   margin: auto;
+   background: rgb(27, 108, 236);
+}
+
+/* Navigation Bar */
+
+#navigation_bar{
+   width: 100%;
+   min-width: 1000px;
+   max-width: 2000px;
+   background-color: rgb(22, 88, 192);
+   /*position: fixed;*/
+   height: 44px;
+   z-index: 2;
+}
+
+#navigation_menu{
+   width: 1000px;
+   margin: 0 auto;
+   list-style: none;
+}
+
+#navigation_menu li{
+   float: left;
+   font-family: 'Nunito', sans-serif;
+   font-size: 18px;
+   padding: 10px 0px;
+   color: white;
+   margin-left: -10px;
+}
+
+#navigation_menu a{
+   display: block;
+   text-align: center;
+   width: 200px; /* fixed width - width divided by num nav items */
+   text-decoration: none; 
+}
+
+#navigation_bar_spacing{
+   display: block;
+   height: 44px;
+}
+
+/* End Navigation Bar */
+
+/* Header */
+
+#header{
+   height: 110px;
+   background-color: rgb(22, 88, 192);
+}
+
+#attention_bar{
+   background-color: rgb(255,255,216);
+}
+
+#attention_bar_text{
+   width: 90%;
+   margin: auto;
+   color: black;
+   padding: 10px;
+   text-align: center;
+   font-family: 'Merriweather', serif;
+}
+
+#attention_bar_close{
+   height: 20px;
+   float: right;
+   position: relative;
+   top: 10px;
+   right: 10px;
+}
+
+/* Logo and Contact Info */
+
+#logo_container{
+   border: 5px solid white;
+   background: rgb(30,49,159);
+   position:relative;
+   width:410px;
+   top: 30px;
+   left: 7%;
+}
+
+#logo_text{
+   font-family: 'Merriweather', serif;
+   font-size:30px;
+   color: white;
+   margin: 10px;
+   text-align: center;
+   position: relative;
+   top: 2px;
+}
+
+#contact_info{
+   font-family: 'Nunito', sans-serif;
+   font-size: 20px;
+   color: white;
+   text-align: right;
+   margin: -45px 7%;
+}
+
+/* End Logo and Contact Info */
+
+/* Miscellaneous */
+p{
+   margin: 0;
+}
+
+strong{
+   position: relative;
+   z-index: 1;
+}
+
+/* End Miscellaneous */
+
+/* Images */
+
+.keilor_photo{
+   width: 80%;
+   margin-left: 10%;
+}
+
+#ssl_logo{
+   margin-left: 160px;
+}
+
+/* End Images */
+
+/* Navigation */
+
+a:link { 
+   color: white;
+   text-decoration: none;
+}
+
+a:visited { 
+   color: white; 
+}
+
+a:hover { 
+   color: rgb(200,200,200);
+}
+
+a:active { 
+   color: rgb(150,150,150); 
+}
+
+.attention_bar_link {
+    color:red;
+    text-decoration: none;
+}
+
+.navigation_button{
+   float: right;
+   font-family: 'Nunito', sans-serif;
+   font-size: 19px;
+   color: white;
+   margin-top: 55px;
+   margin-right: 2%;
+}
+
+/* End Navigation */
+
+/* Main Content */
+
+#main_body{
+    background-color: rgb(39, 139, 200);
+    float: right; 
+}
+
+#main_content{
+   float: right;
+}
+
+/* End Main Content */
+
+/* Side Bar */
+
+#sidebar{
+   width: 400px;
+   float: right;
+   background-color: rgba(4, 84, 200, 0.4);
+}
+
+#sidebar_contact_info{
+   color: white;
+   font-family: 'Nunito', sans-serif;
+   font-size: 20px;
+   text-align: center;
+}
+
+.sidebar_contact_info_small{
+   font-size: 16px;
+}
+
+/* End Side Bar */
+
+/* Book an Appointment Form */
+
+#appointment_container{
+   width: 90%;
+   margin: auto;
+}
+
+#appointment_form{
+   background-color: rgb(206,227,240);
+   height:500px;
+   padding: 1%;
+}
+
+#appointment_title{
+   font-size: 20px;
+   text-align: center;
+   margin: 0px;
+   padding: 15px 0px;
+   border: solid 1px;
+   border-color: rgb(193,193,193);
+}
+
+#appointment_title_box{
+   background-color: white;
+}
+
+#appointment_instructions{
+   padding: 10px;
+}
+
+fieldset{
+   border-color: rgb(193,193,193);
+   border-radius: 6px;
+   text-align: center;
+}
+
+legend{
+   font-size: 18px;
+   font-family: 'Nunito', sans-serif;
+   color: rgb(44,61,77);
+}
+
+.appointment_text{
+   font-family: 'Nunito', sans-serif;
+   font-size: 16px;
+   color: rgb(44,61,77);
+   text-align: center;
+}
+
+#appointment_button_box{
+
+}
+
+.appointment_field{
+   font-family: 'Nunito', sans-serif;
+   font-size: 14px;
+   text-align: center;
+   width: 270px;
+   border-radius: 8px;
+}
+
+.appointment_button{
+   color: white;
+   font-family: 'Nunito', sans-serif;
+   font-size: 12px;
+   background-color: rgb(48,99,186);
+   border-radius: 8px;
+   padding: 5px;
+   position: relative;
+   left: 120px;
+}
+
+/* End Appointment Form */
+
+/* End Book an Appointment Form */
+
+/* Footer */
+
+#copyright{
+   font-family: 'Nunito', sans-serif;
+   font-size: 15px;
+   width: 100%;
+   color: white;
+   text-align: center;
+   background-color: rgb(22, 88, 192);
+   padding: 10px 0px;
+   float: right;
+}
+
+/* End Footer */
