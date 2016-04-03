@@ -1,3 +1,6 @@
+   <?php
+      session_start();
+   ?>
    <meta charset="UTF-8">
    
    <meta name="application-name" content="Keilor Dental Group">
@@ -9,8 +12,7 @@
    <link rel="stylesheet" type="text/css" href="css/main/style.css"/>
    <link href="https://fonts.googleapis.com/css?family=Nunito|Merriweather:900|Nothing+You+Could+Do" rel="stylesheet" type="text/css"/>   
    <script>
-      console.log("Keilor Dental Group 2014");
-      console.log("webdev.muthuhetti.com/keilor");
+      
       console.log(<? echo json_encode($_SESSION); ?>);
       console.log(<? echo json_encode($_POST); ?>);
       console.log(<? echo json_encode($_GET); ?>);
