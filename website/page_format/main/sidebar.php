@@ -4,7 +4,7 @@
             <br/>
             <div id="sidebar_contact_info">      
                <h2>Favourites</h2>
-               <ul>
+               <ul id="favList">
               
                   <?php
                      $favs = $_SESSION['favourites'];
@@ -13,14 +13,7 @@
                      }
                   ?>
                </ul>
-               <br/>
-               <br/>
-               <br/>
-               <br/>
-               <br/>
-               <br/>
-               <br/>
-               <br/>
+           
             </div>
             <br/>
             <br/>

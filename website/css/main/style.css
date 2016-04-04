@@ -164,6 +164,9 @@ a:active {
    float: right;
 }
 
+#home_info {
+   padding:20px;
+}
 /* End Main Content */
 
 /* Side Bar */

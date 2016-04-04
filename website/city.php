@@ -44,8 +44,9 @@
       <script type="text/javascript">
          function fav(city, state) {
             $.post( "php_scripts/favourite.php",{city:city, state:state}, function( data ) {
-              //$( ".result" ).html( data );
+             
               console.log(data);
+              $('#favList').append('<li><a href="city.php?c=' + city +'&s=' + state + '">' + city + ', ' + state + '</a></li>');
             });
          }
       </script>
