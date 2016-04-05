@@ -9,7 +9,7 @@
                   <?php
                      $favs = $_SESSION['favourites'];
                      for ($i=0; $i < count($favs); $i++) { 
-                        echo '<li><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'">'.$favs[$i]['city'].', '.$favs[$i]['state'].'</a></li>';
+                        echo '<li><a href="city.php?c='.$favs[$i]['city'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].', '.$favs[$i]['state'].'</a></li>';
                      }
                   ?>
                </ul>

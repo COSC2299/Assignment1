@@ -25,9 +25,11 @@
             <div id="home_info">
                <?php 
                      $selectedState = $_GET['s'];
+                     $sID = $_GET['id'];
                      //echo $state;
                      //dirname(__DIR__).'/
-                     include 'php_scripts/listCitiesForState.php'; 
+                     //include 'php_scripts/listCitiesForState.php'; 
+                     include 'php_scripts/sqlCitiesForState.php'; 
 
                   ?>
             </div>

@@ -23,7 +23,10 @@
             <br/>
             <br/>
             <div id="home_info">
-               <?php include 'php_scripts/listStates.php'; ?>
+            <?php include 'php_scripts/search.php'; ?>
+               <?php //include 'php_scripts/listStates.php'; 
+                     include 'php_scripts/sqlStates.php'; 
+               ?>
             </div>
             <br/>
             <br/>

@@ -2,6 +2,7 @@
 <a href="index.php">States</a><br/>
 <?php
 
+	
 	$selectedCity = str_replace("%20", " ", $selectedCity);
 	$selectedCity = str_replace("+", " ", $selectedCity);
 
@@ -13,7 +14,7 @@
 	}
 
 	echo '<a href="state.php?s='.$selectedState.'">'.$selectedState.'</a><br/>';
-
+	/*
 	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);
 
 	$url = "";
@@ -30,6 +31,33 @@
 		}
 
 	}
+	*/
+
+
+	  $servername = "localhost";
+	  $username = "root";
+	  $password = "root";
+	  $dbname = "sept";
+
+	  try{
+	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	                                   // set the PDO error mode to excepti
+	        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	        $sql = 'SELECT url FROM city WHERE id = '.$id;
+
+	           
+	           foreach ($conn->query($sql) as $row) {
+	               $url = $row['url'];
+	           }
+	           
+
+	      }
+	      catch(PDOException $e)
+	     {
+	         echo $sql . "<br/>" . $e->getMessage();
+	     }
+	                     
 
 	$string = file_get_contents($url);
 	$stations = json_decode($string, true);

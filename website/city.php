@@ -26,8 +26,9 @@
                <?php 
                      $selectedState = $_GET['s'];
                      $selectedCity = $_GET['c'];
+                     $id = $_GET['id'];
                ?>
-               <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>')">Favourite</button>
+               <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite</button>
                <?php
                      include 'php_scripts/readWeatherData.php'; 
 
@@ -42,11 +43,11 @@
       <?php require 'page_format/main/footer.php';?>
 
       <script type="text/javascript">
-         function fav(city, state) {
-            $.post( "php_scripts/favourite.php",{city:city, state:state}, function( data ) {
+         function fav(city, state, id) {
+            $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
              
               console.log(data);
-              $('#favList').append('<li><a href="city.php?c=' + city +'&s=' + state + '">' + city + ', ' + state + '</a></li>');
+              $('#favList').append('<li><a href="city.php?c=' + city +'&s=' + state + '&id=' + id + '">' + city + ', ' + state + '</a></li>');
             });
          }
       </script>
