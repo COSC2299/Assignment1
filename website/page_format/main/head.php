@@ -9,10 +9,10 @@
    <link rel="stylesheet" type="text/css" href="css/main/style.css"/>
    <link href="https://fonts.googleapis.com/css?family=Nunito|Merriweather:900|Nothing+You+Could+Do" rel="stylesheet" type="text/css"/>   
    <script>
-      console.log(<? echo json_encode($_SESSION); ?>);
-      console.log(<? echo json_encode($_POST); ?>);
-      console.log(<? echo json_encode($_GET); ?>);
-      console.log(<? echo json_encode($_COOKIE); ?>);
+      console.log(<?php echo json_encode($_SESSION); ?>);
+      console.log(<?php echo json_encode($_POST); ?>);
+      console.log(<?php echo json_encode($_GET); ?>);
+      console.log(<?php echo json_encode($_COOKIE); ?>);
    </script>
    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

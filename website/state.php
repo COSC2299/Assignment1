@@ -7,7 +7,6 @@
 <html>  
 <head>
    <title>Weather Station</title>
-   <link rel="stylesheet" type="text/css" href="css/pages/index_style.css">
    <?php require 'page_format/main/head.php';?>
 </head>
    
@@ -19,22 +18,19 @@
       <div id="main_body">
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
-            <br/>
-            <br/>
-            <br/>
-            <div id="home_info">
+            <div id="main_content_text">
                <?php 
                      $selectedState = $_GET['s'];
                      //echo $state;
                      //dirname(__DIR__).'/
+                     echo '<h1>Search Cities - ' . $selectedState . '</h1>';
                      include 'php_scripts/listCitiesForState.php'; 
-
                   ?>
             </div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <br>
+            <br>
+            <br>
+            <br>
          </div> 
       </div>
       <?php require 'page_format/main/footer.php';?>

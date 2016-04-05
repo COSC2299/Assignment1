@@ -147,6 +147,15 @@ a:active {
    float: right;
 }
 
+#main_content_text{
+	width: 90%;
+   margin: auto;
+   color: white;
+   font-family: 'Nunito', sans-serif;
+   font-size: 18px;
+ 	text-align: justify;
+}
+
 #home_info {
    padding:20px;
 }
@@ -160,14 +169,14 @@ a:active {
    background-color: rgba(4, 84, 200, 0.4);
 }
 
-#sidebar_contact_info{
+#sidebar_info{
    color: white;
    font-family: 'Nunito', sans-serif;
    font-size: 20px;
    text-align: center;
 }
 
-.sidebar_contact_info_small{
+.sidebar_info_small{
    font-size: 16px;
 }
 
