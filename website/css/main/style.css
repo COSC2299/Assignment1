@@ -3,7 +3,7 @@ body{
    min-width: 1000px;
    max-width: 2000px;
    margin: auto;
-   background: rgb(27, 108, 236);
+   background: rgb(27, 108, 210);
 }
 
 /* Navigation Bar */
@@ -75,36 +75,19 @@ body{
    right: 10px;
 }
 
-/* Logo and Contact Info */
-
-#logo_container{
-   border: 5px solid white;
-   background: rgb(30,49,159);
-   position:relative;
-   width:410px;
-   top: 30px;
-   left: 7%;
-}
+/* Logo */
 
 #logo_text{
    font-family: 'Merriweather', serif;
    font-size:30px;
    color: white;
-   margin: 10px;
+   margin: 0px;
    text-align: center;
    position: relative;
-   top: 2px;
+   top: 40px;
 }
 
-#contact_info{
-   font-family: 'Nunito', sans-serif;
-   font-size: 20px;
-   color: white;
-   text-align: right;
-   margin: -45px 7%;
-}
-
-/* End Logo and Contact Info */
+/* End Logo */
 
 /* Miscellaneous */
 p{
