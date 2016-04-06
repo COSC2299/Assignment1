@@ -3,7 +3,7 @@ body{
    min-width: 1000px;
    max-width: 2000px;
    margin: auto;
-   background: rgb(27, 108, 236);
+   background: rgb(27, 108, 210);
 }
 
 /* Navigation Bar */
@@ -75,36 +75,19 @@ body{
    right: 10px;
 }
 
-/* Logo and Contact Info */
-
-#logo_container{
-   border: 5px solid white;
-   background: rgb(30,49,159);
-   position:relative;
-   width:410px;
-   top: 30px;
-   left: 7%;
-}
+/* Logo */
 
 #logo_text{
    font-family: 'Merriweather', serif;
    font-size:30px;
    color: white;
-   margin: 10px;
+   margin: 0px;
    text-align: center;
    position: relative;
-   top: 2px;
+   top: 40px;
 }
 
-#contact_info{
-   font-family: 'Nunito', sans-serif;
-   font-size: 20px;
-   color: white;
-   text-align: right;
-   margin: -45px 7%;
-}
-
-/* End Logo and Contact Info */
+/* End Logo */
 
 /* Miscellaneous */
 p{
@@ -164,6 +147,15 @@ a:active {
    float: right;
 }
 
+#main_content_text{
+	width: 90%;
+   margin: auto;
+   color: white;
+   font-family: 'Nunito', sans-serif;
+   font-size: 18px;
+ 	text-align: justify;
+}
+
 #home_info {
    padding:20px;
 }
@@ -177,14 +169,14 @@ a:active {
    background-color: rgba(4, 84, 200, 0.4);
 }
 
-#sidebar_contact_info{
+#sidebar_info{
    color: white;
    font-family: 'Nunito', sans-serif;
    font-size: 20px;
    text-align: center;
 }
 
-.sidebar_contact_info_small{
+.sidebar_info_small{
    font-size: 16px;
 }
 
