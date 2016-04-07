@@ -19,11 +19,12 @@
       <div id="main_body">
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
-            <div id="home_info">
+            <div id="main_content_text">
                <?php 
                      $selectedState = $_GET['s'];
                      $selectedCity = $_GET['c'];
                      $id = $_GET['id'];
+                     echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
                ?>
                <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite</button>
                <?php

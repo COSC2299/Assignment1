@@ -1,6 +1,7 @@
          <div id="sidebar">
             <br/>
             <br/>
+            <?php include 'php_scripts/search.php'; ?>
             <br/>
             <div id="sidebar_info">      
                <h2>Favourites</h2>
