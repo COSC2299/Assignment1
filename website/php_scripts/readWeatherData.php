@@ -72,7 +72,7 @@
 		<th>Cloud</th>
 	</tr>
 
-<?
+<?php
 	foreach ($stations['observations']['data'] as $station) {
 		echo '<tr>';
 			$date = $station['local_date_time_full'];

@@ -19,16 +19,14 @@
       <div id="main_body">
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
-            <br/>
-            <br/>
-            <br/>
-            <div id="home_info">
+            <div id="main_content_text">
                <?php 
                      $selectedState = $_GET['s'];
                      $sID = $_GET['id'];
                      //echo $state;
                      //dirname(__DIR__).'/
                      //include 'php_scripts/listCitiesForState.php'; 
+                     echo '<h1>Browse Towns - ' . $selectedState . '</h1>';
                      include 'php_scripts/sqlCitiesForState.php'; 
 
                   ?>

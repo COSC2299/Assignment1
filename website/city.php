@@ -19,9 +19,6 @@
       <div id="main_body">
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
-            <br/>
-            <br/>
-            <br/>
             <div id="home_info">
                <?php 
                      $selectedState = $_GET['s'];
@@ -31,7 +28,6 @@
                <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite</button>
                <?php
                      include 'php_scripts/readWeatherData.php'; 
-
                   ?>
             </div>
             <br/>
