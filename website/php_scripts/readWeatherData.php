@@ -34,10 +34,7 @@
 	*/
 
 
-	  $servername = "localhost";
-	  $username = "root";
-	  $password = "root";
-	  $dbname = "sept";
+	  require 'php_scripts/sqlSecurity.php';
 
 	  try{
 	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
