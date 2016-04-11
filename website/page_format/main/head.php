@@ -1,9 +1,9 @@
    <meta charset="UTF-8">
    
-   <meta name="application-name" content="Keilor Dental Group">
-   <meta name="description" content="Keilor Dental Group - Dentist in Keilor East">
-   <meta name="keywords" content="Dentist,Dental,Fillings,Crowns,Bridges,Dentures">
-   <meta name="author" content="Janith Muthuhetti">
+   <meta name="application-name" content="Weather Station">
+   <meta name="description" content="Weather Station">
+   <meta name="keywords" content="Weather Station">
+   <meta name="author" content="COSC2299">
 
    <link rel="shortcut icon" href="media/images/logo/bookmark.png"/>
    <link rel="stylesheet" type="text/css" href="css/main/style.css"/>

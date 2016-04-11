@@ -3,10 +3,8 @@
 
 	$string = file_get_contents(dirname(__DIR__).'/php_scripts/stations.json');
 	$stations = json_decode($string, true);
-	$servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$dbname = "sept";
+	
+	require 'php_scripts/sqlSecurity.php';
 
 	try {
 	    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
