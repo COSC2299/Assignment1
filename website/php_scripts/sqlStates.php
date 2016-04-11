@@ -1,6 +1,7 @@
 <?php
+
   
-  require 'php_scripts/sqlSecurity.php';
+  require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
   
   try{
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -20,6 +21,6 @@
      {
          echo $sql . "<br/>" . $e->getMessage();
      }
-                     
+                 
 
 ?>

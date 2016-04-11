@@ -1,4 +1,4 @@
-<?php include 'search.php'; ?>
+<?php// include 'search.php'; ?>
 
 <a href="index.php">States</a><br/>
 <?php
