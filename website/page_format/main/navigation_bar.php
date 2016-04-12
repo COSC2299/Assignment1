@@ -1,7 +1,7 @@
    <div id="navigation_bar">
       <ul id="navigation_menu">
          <li id="navigation_button_home"><a href="index.php">Home</a></li>
-         <li><a href="index.php">States</a></li>
+         <li><a href="all_states.php">States</a></li>
          <li><a href="state.php">Cities</a></li>
          <li><a href="#">My Favourites</a></li>
          <li><a href="#">Help</a></li>

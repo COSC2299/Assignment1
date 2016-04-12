@@ -64,7 +64,7 @@
 
 ?>
 
-<table>
+<table border='1' style='width:90%; margin:auto;'>
 	<tr>
 		<th>Date</th>
 		<th>Time</th>

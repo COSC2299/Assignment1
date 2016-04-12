@@ -13,7 +13,7 @@
   <div class="ui-widget">
     <label for="tags">Search: </label>
     <input id="tags" name="c">
+    <input type="submit" value="Go" />
   </div>
-  <input type="submit" value="Go" />
 </form>
  

@@ -20,8 +20,7 @@
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
             <div id="main_content_text">
-            <h1>Home</h1>
-            <h2>Browse States</h2>
+            <h1>Browse States</h1>
             <?php //include 'php_scripts/search.php'; ?>
                <?php //include 'php_scripts/listStates.php'; 
                      include 'php_scripts/sqlStates.php'; 
