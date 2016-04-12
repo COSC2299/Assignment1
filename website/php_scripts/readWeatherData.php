@@ -15,7 +15,7 @@
 		$selectedCity = substr($selectedCity, 0, $delim - 1);
 	}
 
-	echo '<a href="state.php?s='.$selectedState.'">Return to towns in '.$selectedState.'</a><br/>';
+	echo '<a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to towns in '.$selectedState.'</a><br/>';
 	/*
 	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);
 

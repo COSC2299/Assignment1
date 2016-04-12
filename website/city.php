@@ -24,6 +24,7 @@
                      $selectedState = $_GET['s'];
                      $selectedCity = $_GET['c'];
                      $id = $_GET['id'];
+                     $sID = $_GET['sID'];
                      echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
                ?>
                <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Town</button>
@@ -42,9 +43,7 @@
       <script type="text/javascript">
          function fav(city, state, id) {
             $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
-             
-              console.log(data);
-              $('#favList').append('<li><a href="city.php?c=' + city +'&s=' + state + '&id=' + id + '">' + city + ', ' + state + '</a></li>');
+              location.reload();
             });
          }
       </script>

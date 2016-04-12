@@ -1,6 +1,6 @@
 <?php// include 'search.php'; ?>
 
-<p><a href="all_states.php">Return to All States</a></p>
+<p><a href="all_states.php">Return to States</a></p>
 <br>
 <?php
 
@@ -24,7 +24,7 @@
 										
            		echo '<div class="mainList">';
            		foreach ($conn->query($sql) as $row) {
-               	echo '<p><a href="city.php?c='.$row['name'].'&s='.$state_name[$sID - 24].'&id='.$row['id'].'">'.$row['name'].'</a></p>';
+               	echo '<p><a href="city.php?c='.$row['name'].'&s='.$state_name[$sID - 24].'&id='.$row['id'].'&sID='.$sID.'">'.$row['name'].'</a></p>';
            		}
            		echo '<br><br>';
            		echo '</div>';

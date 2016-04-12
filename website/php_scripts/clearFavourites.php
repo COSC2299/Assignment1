@@ -8,7 +8,7 @@
 		unset($_SESSION['favourites']);	
 	}
 	else if (isset($_GET['favID'])){
-		unset($_SESSION['favourites'][0]);
+		unset($_SESSION['favourites'][$favID]);
       $_SESSION['favourites'] = array_values($_SESSION['favourites']);
 	}
 ?>
