@@ -10,11 +10,11 @@
 
         $sql = 'SELECT name, id FROM state ORDER BY name';
 
-           echo '<ul class="mainList">';
+           echo '<div class="mainList">';
            foreach ($conn->query($sql) as $row) {
-               echo '<li><a href="state.php?s='.$row['name'].'&id='.$row['id'].'">'.$row['name'].'</a></li>';
+               echo '<p><a href="state.php?s='.$row['name'].'&id='.$row['id'].'">'.$row['name'].'</a></p>';
            }
-           echo '</ul>';
+           echo '</div>';
 
       }
       catch(PDOException $e)

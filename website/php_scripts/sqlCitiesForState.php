@@ -20,7 +20,7 @@
 		  			
 		  			$sql = 'SELECT name, id FROM city WHERE state_id = '.$sID.' ORDER BY name';
 					
-					echo '<strong>' . $state_name[$sID - 24] . '</strong>';
+					echo '<h3><strong>' . $state_name[$sID - 24] . '</strong></h3>';
 										
            		echo '<div class="mainList">';
            		foreach ($conn->query($sql) as $row) {
@@ -33,11 +33,11 @@
 		  
         $sql = 'SELECT name, id FROM city WHERE state_id = '.$sID.' ORDER BY name';
 
-           echo '<ul class="mainList">';
+           echo '<div class="mainList">';
            foreach ($conn->query($sql) as $row) {
-               echo '<li><a href="city.php?c='.$row['name'].'&s='.$selectedState.'&id='.$row['id'].'">'.$row['name'].'</a></li>';
+               echo '<p><a href="city.php?c='.$row['name'].'&s='.$selectedState.'&id='.$row['id'].'">'.$row['name'].'</a></p>';
            }
-           echo '</ul>';
+           echo '</div>';
 
       }
       catch(PDOException $e)

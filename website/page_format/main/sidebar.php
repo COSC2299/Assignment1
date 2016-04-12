@@ -8,9 +8,10 @@
                <?php
                   $favs = $_SESSION['favourites'];
                   for ($i=0; $i < count($favs); $i++) { 
-                     echo '<p><a href="city.php?c='.$favs[$i]['city'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].', '.$favs[$i]['state'].'</a></p>';
+                     echo '<p><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].', '.$favs[$i]['state'].'</a></p>';
                   }
                ?>  
+               <br>
                <button onclick="clearFav()">Remove All Favourites</button>    
             </div>
             <br/>

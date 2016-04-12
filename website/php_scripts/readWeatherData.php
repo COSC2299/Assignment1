@@ -1,5 +1,7 @@
 <?php //include 'search.php'; ?>
-<a href="index.php">States</a><br/>
+<br>
+<br>
+<p><a href="all_states.php">Return to States</a></p>
 <?php
 
 	
@@ -13,7 +15,7 @@
 		$selectedCity = substr($selectedCity, 0, $delim - 1);
 	}
 
-	echo '<a href="state.php?s='.$selectedState.'">'.$selectedState.'</a><br/>';
+	echo '<a href="state.php?s='.$selectedState.'">Return to towns in '.$selectedState.'</a><br/>';
 	/*
 	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);
 
@@ -59,10 +61,13 @@
 	$string = file_get_contents($url);
 	$stations = json_decode($string, true);
 
-	echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
-	echo '<br />';
+	//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
+	//echo '<br />';
 
 ?>
+
+<br>
+<br>
 
 <table border='1' style='width:90%; margin:auto;'>
 	<tr>
