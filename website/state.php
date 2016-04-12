@@ -23,6 +23,10 @@
                <?php 
                      $selectedState = $_GET['s'];
                      $sID = $_GET['id'];
+                     if ($selectedState == null){
+                     	$selectedState = 'All Towns';
+                     	$sID = 0;
+                     }
                      //echo $state;
                      //dirname(__DIR__).'/
                      //include 'php_scripts/listCitiesForState.php'; 
