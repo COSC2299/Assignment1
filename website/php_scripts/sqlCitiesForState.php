@@ -24,7 +24,7 @@
 										
            		echo '<div class="mainList">';
            		foreach ($conn->query($sql) as $row) {
-               	echo '<p><a href="city.php?c='.$row['name'].'&s='.$selectedState.'&id='.$row['id'].'">'.$row['name'].'</a></p>';
+               	echo '<p><a href="city.php?c='.$row['name'].'&s='.$state_name[$sID - 24].'&id='.$row['id'].'">'.$row['name'].'</a></p>';
            		}
            		echo '<br><br>';
            		echo '</div>';

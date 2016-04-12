@@ -10,9 +10,7 @@
                   for ($i=0; $i < count($favs); $i++) { 
                      echo '<p><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].', '.$favs[$i]['state'].'</a></p>';
                   }
-               ?>  
-               <br>
-               <button onclick="clearFav()">Remove All Favourites</button>    
+               ?>    
             </div>
             <br/>
             <br/>
@@ -22,12 +20,3 @@
             <br/>
             <br/>
          </div> 
-         <script type="text/javascript">
-            function clearFav() {
-                     $.post( "php_scripts/clearFavourites.php",{}, function( data ) {
-                   
-                        console.log(data);
-                    
-                     });
-               }
-         </script>
