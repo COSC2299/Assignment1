@@ -49,17 +49,9 @@
 
 ?>
 
-<br>
-<br>
-
-<table border='1' style='width:90%; margin:auto;'>
-	<tr>
-		<th>Date</th>
-		<th>Time</th>
-		<th>Temperature</th>
-	</tr>
 
 <?php
+/*
 	foreach ($stations['observations']['data'] as $station) {
 		echo '<tr>';
 			$date = $station['local_date_time_full'];
@@ -74,6 +66,5 @@
 		echo '</tr>';
 
 	}
-
+	*/
 ?>
-</table>

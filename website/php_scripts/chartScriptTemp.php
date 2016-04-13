@@ -36,7 +36,28 @@
         });
     };
     var lineChartData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        labels: [<?php
+        		$breakLoop = 0;
+        		foreach ($stations['observations']['data'] as $station) {
+        		//for ($i=0; $i<24; $i++){
+        			if ($breakLoop == 24){
+        				break;
+        			}
+        			else{
+        				if ($breakLoop != 0){
+        					echo ",";
+        				}
+        				$breakLoop++;
+        			}
+        			$date = $station['local_date_time_full'];
+					$year = substr($date, 0, 4);
+					$month = substr($date, 4, 2);
+					$day = substr($date, 6, 2);
+					$hour = substr($date, 8, 2);
+					$minute = substr($date, 10, 2);
+            	echo '"'.$hour.':'.$minute.'"';
+            }
+        ?>],
         datasets: [{
             label: "My First dataset",
             fillColor: "rgba(220,220,220,0.2)",
@@ -45,7 +66,12 @@
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [3,6,9,1,3,5,1,2,9,2,5,0]
+            data: [<?php
+            	foreach ($stations['observations']['data'] as $station) {
+            	   echo $station['air_temp'].',';
+            	}
+            	echo '0';
+            ?>]
         }]
     };
 

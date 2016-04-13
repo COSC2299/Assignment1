@@ -33,7 +33,7 @@
                      $sID = $_GET['sID'];
                      echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
                ?>
-               <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>'); location.reload();">Favourite This Town</button>
+               <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Town</button>
                <?php
                   include 'php_scripts/readWeatherData.php'; 
                ?>

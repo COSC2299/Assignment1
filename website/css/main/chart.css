@@ -3,8 +3,7 @@
         margin: 20px auto;
 }
 #canvas-holder2 {
-        width: 80%;
-        margin: 5px 10%;
+        width: 100%;
 }
 #chartjs-tooltip {
         opacity: 1;
