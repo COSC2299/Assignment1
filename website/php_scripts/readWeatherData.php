@@ -73,14 +73,31 @@
 ?>
 
 <br>
+
+<?php
+	foreach ($stations['observations']['header'] as $header) {
+		echo '<p>'.$header['product_name'].'</p>';
+		echo '<p>'.$header['refresh_message'].'</p>';
+	}
+?>
+
 <br>
 
-<table border='1' style='width:90%; margin:auto;'>
+<table border='1' style='width:100%; margin:auto;'>
 	<tr>
-		<th>Date</th>
-		<th>Time</th>
-		<th>Temperature</th>
-		<th>Cloud</th>
+		<th rowspan='2'>Date</th>
+		<th rowspan='2'>Time</th>
+		<th rowspan='2'>Temperature</th>
+		<th rowspan='2'>Cloud</th>
+		<th rowspan='2'>Rain (mm)<br>Since 9am</th>
+		<th colspan='3'>Wind</th>
+		<th rowspan='2'>Pressure<br>hPa</th>
+		<th rowspan='2'>Relative<br>Humidity</th>
+	</tr>
+	<tr>
+		<th>Direction</th>
+		<th>Speed<br>km/m</th>
+		<th>Gust<br>km/m</th>
 	</tr>
 
 <?php
@@ -96,6 +113,12 @@
 			echo '<td>'.$hour.':'.$minute.'</td>';
 			echo '<td>'.$station['air_temp'].'</td>';
 			echo '<td>'.$station['cloud'].'</td>';
+			echo '<td>'.$station['rain_trace'].'</td>';
+			echo '<td>'.$station['wind_dir'].'</td>';
+			echo '<td>'.$station['wind_spd_kmh'].'</td>';
+			echo '<td>'.$station['gust_kmh'].'</td>';
+			echo '<td>'.$station['press'].'</td>';
+			echo '<td>'.$station['rel_hum'].'</td>';
 		echo '</tr>';
 
 	}

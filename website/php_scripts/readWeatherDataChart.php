@@ -46,12 +46,13 @@
 
 	//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
 	//echo '<br />';
+	
+	
 
 ?>
 
-
 <?php
-/*
+	/*
 	foreach ($stations['observations']['data'] as $station) {
 		echo '<tr>';
 			$date = $station['local_date_time_full'];
@@ -67,4 +68,22 @@
 
 	}
 	*/
+?>
+
+<?php 
+	$breakLoop = 0;
+	echo $url;
+	echo '<br>';
+	echo '<br>';
+	echo '<br>';
+	foreach ($stations['observations']['data'] as $station) {
+		if ($breakLoop == 1){
+        				break;
+        			}
+        			else{
+        				$breakLoop++;
+        			}
+		print_r($station);
+		
+	}
 ?>

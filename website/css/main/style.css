@@ -1,6 +1,6 @@
 body{
    width: 100%;
-   min-width: 1000px;
+   min-width: 1300px;
    max-width: 2000px;
    margin: auto;
    background: rgb(27, 108, 210);
@@ -97,6 +97,10 @@ p{
 strong{
    position: relative;
    z-index: 1;
+}
+
+table{
+	text-align: center;
 }
 
 /* End Miscellaneous */
