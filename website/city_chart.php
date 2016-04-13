@@ -8,6 +8,9 @@
 <head>
    <title>Weather Station - <?php echo $_GET['c'];?></title>
    <?php require 'page_format/main/head.php';?>
+   <link rel="stylesheet" type="text/css" href="css/main/chart.css"/>
+   <script src="page_format/Chart.js/Chart.js"></script>
+   <?php include 'php_scripts/chartScriptTemp.php';?>
    <script type="text/javascript">
    	function fav(city, state, id) {
          $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
@@ -16,7 +19,6 @@
       }
    </script>
 </head>
-   
    <body>
       <?php include 'page_format/main/attention_bar.php';?>
       <?php require 'page_format/main/header.php';?>
@@ -33,6 +35,11 @@
                      echo '<h2>Charts</h2>';
                ?>
                <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>'); location.reload();">Favourite This Town</button>
+               
+               
+               <?php include 'php_scripts/chart.php';?>
+               
+               
                <?php
                   include 'php_scripts/readWeatherDataChart.php'; 
                ?>
@@ -44,6 +51,8 @@
          </div> 
       </div>
       <?php require 'page_format/main/footer.php';?>
+      
+      
    </body>
 
 </html>
