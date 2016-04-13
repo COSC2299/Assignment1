@@ -70,20 +70,3 @@
 	*/
 ?>
 
-<?php 
-	$breakLoop = 0;
-	echo $url;
-	echo '<br>';
-	echo '<br>';
-	echo '<br>';
-	foreach ($stations['observations']['data'] as $station) {
-		if ($breakLoop == 1){
-        				break;
-        			}
-        			else{
-        				$breakLoop++;
-        			}
-		print_r($station);
-		
-	}
-?>

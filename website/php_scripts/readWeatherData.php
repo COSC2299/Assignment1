@@ -20,7 +20,7 @@
 	echo '<br>';
 	echo '<br>';
 ?>
-	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID;?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Chart</a></p>
+	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Charts</a></p>
 <?php
 	/*
 	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);

@@ -50,7 +50,7 @@
                   	for ($i=0; $i < count($favs); $i++) { 
                   		echo '<tr>';
                      	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].'</a></td>';
-                     	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['state'].'</a></td>';
+                     	echo '<td><a href="state.php?&s='.$favs[$i]['state'].'&id='.$favs[$i]['sID'].'">'.$favs[$i]['state'].'</a></td>';
                      	echo '<td><button onclick="clearFav('.$i.')">Unfavourite This Station</button></td>';
                      	echo '<tr>';
                   	}

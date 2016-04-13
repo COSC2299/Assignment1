@@ -2,6 +2,15 @@
    session_start();
 ?>
 
+<?php
+	$selectedState = $_GET['s'];
+   $selectedCity = $_GET['c'];
+   $id = $_GET['id'];
+   $sID = $_GET['sID'];
+   $type = $_GET['type'];
+   $time = $_GET['time'];
+?>
+
 <!doctype html>
 
 <html>  
@@ -19,20 +28,39 @@
    </script>
 </head>
    <body>
-      <?php include 'page_format/main/attention_bar.php';?>
+      <?php //include 'page_format/main/attention_bar.php';?>
       <?php require 'page_format/main/header.php';?>
+      <div id="navigation_bar">
+      	<ul id="navigation_menu">
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>">Temperature</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Rain%20Fall%20Since%209am&time=12';?>">Rain</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time=12';?>">Wind</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Pressure&time=12';?>">Pressure</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Relative%20Humidity&time=12';?>">Humidity</a></li>
+      	</ul>
+   	</div>
+   	<div id="navigation_bar_spacing"></div>
 
       <div id="main_body_chart">  
          <div id="main_content_chart">
             <div id="main_content_text">
+            	<br>
                <?php 
-                     $selectedState = $_GET['s'];
-                     $selectedCity = $_GET['c'];
-                     $id = $_GET['id'];
-                     $sID = $_GET['sID'];
                      echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
-                     echo '<h2>Charts - Temperature Past 12 Hours</h2>';
+                     echo '<h2>'.$type.' - Past '.$time.' Hours</h2>';
+                     if ($type == 'Rain Fall Since 9am'){
+                     	echo '<p>Please note rain data resets at 9:00am</p>';
+                     	echo '<br>';
+               			echo '<br>';
+                     }
+                     if ($type == 'Wind Speed' || $type == 'Gust Speed'){
+                     	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time=12'.'">Wind Speed</a></p>';
+               			echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Gust%20Speed&time=12'.'">Gust Speed</a></p>';
+                     }
                ?>
+               <p><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=12';?>">12 Hour Chart</a></p>
+               <p><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=24';?>">24 Hour Chart</a></p>
+               
                
                <?php include 'php_scripts/readWeatherDataChart.php';?>
                <?php include 'php_scripts/chartScriptTemp.php';?>
