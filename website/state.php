@@ -4,7 +4,7 @@
 <?php
 	$selectedState = $_GET['s'];
 	if ($selectedState == null){
-   	$selectedState = 'All Towns';
+   	$selectedState = 'All Stations';
    	$sID = 0;
    }
 ?>
@@ -29,13 +29,13 @@
                      $selectedState = $_GET['s'];
                      $sID = $_GET['id'];
                      if ($selectedState == null){
-                     	$selectedState = 'All Towns';
+                     	$selectedState = 'All Stations';
                      	$sID = 0;
                      }
                      //echo $state;
                      //dirname(__DIR__).'/
                      //include 'php_scripts/listCitiesForState.php'; 
-                     echo '<h1>Browse Towns - ' . $selectedState . '</h1>';
+                     echo '<h1>Browse Stations - ' . $selectedState . '</h1>';
                      include 'php_scripts/sqlCitiesForState.php'; 
 
                   ?>

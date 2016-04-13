@@ -12,7 +12,7 @@
 
            echo '<div class="mainList">';
            foreach ($conn->query($sql) as $row) {
-               echo '<p><a href="state.php?s='.$row['name'].'&id='.$row['id'].'">'.$row['name'].'</a></p>';
+               echo '<div class="menu_item"><a href="state.php?s='.$row['name'].'&id='.$row['id'].'">'.$row['name'].'</a></div>';
            }
            echo '</div>';
 

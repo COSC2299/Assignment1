@@ -20,6 +20,8 @@
          <div id="main_content">
             <div id="main_content_text">
             <h1>Browse States</h1>
+            <br/>
+            <br/>
             <?php //include 'php_scripts/search.php'; ?>
                <?php //include 'php_scripts/listStates.php'; 
                      include 'php_scripts/sqlStates.php'; 

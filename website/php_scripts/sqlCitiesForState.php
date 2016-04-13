@@ -20,14 +20,15 @@
 		  			
 		  			$sql = 'SELECT name, id FROM city WHERE state_id = '.$sID.' ORDER BY name';
 					
-					echo '<h3><strong>' . $state_name[$sID - 24] . '</strong></h3>';
-										
-           		echo '<div class="mainList">';
+					echo '<div class="center"><h2><strong>' . $state_name[$sID - 24] . '</strong></h2></div>';
+						
+					echo '<div class="mainList">';				
            		foreach ($conn->query($sql) as $row) {
-               	echo '<p><a href="city.php?c='.$row['name'].'&s='.$state_name[$sID - 24].'&id='.$row['id'].'&sID='.$sID.'">'.$row['name'].'</a></p>';
+               	echo '<div class="menu_item"><a href="city.php?c='.$row['name'].'&s='.$state_name[$sID - 24].'&id='.$row['id'].'&sID='.$sID.'">'.$row['name'].'</a></div>';
            		}
-           		echo '<br><br>';
            		echo '</div>';
+           		echo '<br>';
+           		echo '<br>';
 		  		} 
 		  }
 		  
@@ -35,7 +36,7 @@
 
            echo '<div class="mainList">';
            foreach ($conn->query($sql) as $row) {
-               echo '<p><a href="city.php?c='.$row['name'].'&s='.$selectedState.'&id='.$row['id'].'">'.$row['name'].'</a></p>';
+               echo '<div class="menu_item"><a href="city.php?c='.$row['name'].'&s='.$selectedState.'&id='.$row['id'].'">'.$row['name'].'</a></div>';
            }
            echo '</div>';
 
