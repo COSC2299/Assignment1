@@ -6,8 +6,7 @@
 
 <html>  
 <head>
-   <title>Weather Station</title>
-   <link rel="stylesheet" type="text/css" href="css/pages/index_style.css">
+   <title>Weather Station - <?php echo $_GET['c'];?></title>
    <?php require 'page_format/main/head.php';?>
 </head>
    

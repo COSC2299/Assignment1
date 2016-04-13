@@ -7,7 +7,6 @@
 <html>  
 <head>
    <title>Weather Station</title>
-   <link rel="stylesheet" type="text/css" href="css/pages/index_style.css">
    <?php require 'page_format/main/head.php';?>
 </head>
    

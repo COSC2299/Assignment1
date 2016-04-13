@@ -180,6 +180,13 @@ a:active {
    font-size: 16px;
 }
 
+#search_bar{
+	color: white;
+	font-family: 'Nunito', sans-serif;
+   font-size: 16px;
+   text-align: center;
+}
+
 /* End Side Bar */
 
 /* Footer */

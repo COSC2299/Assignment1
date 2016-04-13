@@ -1,9 +1,11 @@
          <div id="sidebar">
             <br/>
             <br/>
-            <?php include 'php_scripts/search.php'; ?>
+            <div id="search_bar">
+            	<?php include 'php_scripts/search.php'; ?>
+            </div>
             <br/>
-            <div id="sidebar_info">      
+            <div id="sidebar_info">    
                <h2>Favourites</h2>
                <?php
                   $favs = $_SESSION['favourites'];

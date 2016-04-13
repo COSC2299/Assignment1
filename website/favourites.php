@@ -6,7 +6,7 @@
 
 <html>  
 <head>
-   <title>Weather Station</title>
+   <title>Weather Station - My Favourites</title>
    <?php require 'page_format/main/head.php';?>
    <script type="text/javascript">
    	function clearFav($favID) {
@@ -40,7 +40,7 @@
                   	if (count($favs) != 0){
                   	   echo '<table border="0" style="width:90%; margin:auto;">';
                   		echo '<tr>';
-								echo '<th>Town</th>';
+								echo '<th>Station</th>';
 								echo '<th>State</th>';
 								echo '<th></th>';
 								echo '</tr>';
@@ -51,7 +51,7 @@
                   		echo '<tr>';
                      	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].'</a></td>';
                      	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['state'].'</a></td>';
-                     	echo '<td><button onclick="clearFav('.$i.')">Unfavourite this town</button></td>';
+                     	echo '<td><button onclick="clearFav('.$i.')">Unfavourite This Station</button></td>';
                      	echo '<tr>';
                   	}
                   	if (count($favs) == 0){

@@ -1,13 +1,18 @@
 <?php
    session_start();
 ?>
-
+<?php
+	$selectedState = $_GET['s'];
+	if ($selectedState == null){
+   	$selectedState = 'All Towns';
+   	$sID = 0;
+   }
+?>
 <!doctype html>
 
 <html>  
 <head>
-   <title>Weather Station</title>
-   <link rel="stylesheet" type="text/css" href="css/pages/index_style.css">
+   <title>Weather Station - <?php echo $selectedState;?></title>
    <?php require 'page_format/main/head.php';?>
 </head>
    
