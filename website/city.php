@@ -8,6 +8,13 @@
 <head>
    <title>Weather Station - <?php echo $_GET['c'];?></title>
    <?php require 'page_format/main/head.php';?>
+   <script type="text/javascript">
+   	function fav(city, state, id) {
+         $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
+           	location.reload();
+         });
+      }
+   </script>
 </head>
    
    <body>
@@ -38,14 +45,6 @@
          </div> 
       </div>
       <?php require 'page_format/main/footer.php';?>
-
-      <script type="text/javascript">
-         function fav(city, state, id) {
-            $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
-              location.reload();
-            });
-         }
-      </script>
    </body>
 
 </html>
