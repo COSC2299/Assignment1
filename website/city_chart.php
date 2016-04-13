@@ -13,11 +13,9 @@
    <body>
       <?php include 'page_format/main/attention_bar.php';?>
       <?php require 'page_format/main/header.php';?>
-      <?php require 'page_format/main/navigation_bar.php';?>
 
-      <div id="main_body">
-         <?php require 'page_format/main/sidebar.php';?>  
-         <div id="main_content">
+      <div id="main_body_chart">  
+         <div id="main_content_chart">
             <div id="main_content_text">
                <?php 
                      $selectedState = $_GET['s'];
@@ -25,10 +23,11 @@
                      $id = $_GET['id'];
                      $sID = $_GET['sID'];
                      echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
+                     echo '<h2>Charts</h2>';
                ?>
                <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>'); location.reload();">Favourite This Town</button>
                <?php
-                  include 'php_scripts/readWeatherData.php'; 
+                  include 'php_scripts/readWeatherDataChart.php'; 
                ?>
             </div>
             <br/>

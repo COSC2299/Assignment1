@@ -143,6 +143,10 @@ a:active {
     float: right; 
 }
 
+#main_body_chart{
+	background-color: rgb(39, 139, 200);
+}
+
 #main_content{
    float: right;
 }

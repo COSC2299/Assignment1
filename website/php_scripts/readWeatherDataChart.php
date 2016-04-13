@@ -1,7 +1,6 @@
 <?php //include 'search.php'; ?>
 <br>
 <br>
-<p><a href="all_states.php">Return to States</a></p>
 <?php
 
 	
@@ -15,32 +14,10 @@
 		$selectedCity = substr($selectedCity, 0, $delim - 1);
 	}
 
-	echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to towns in '.$selectedState.'</a></p>';
+	//echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to towns in '.$selectedState.'</a></p>';
 	
 	echo '<br>';
 	echo '<br>';
-?>
-	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID;?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Chart</a></p>
-<?php
-	/*
-	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);
-
-	$url = "";
-
-	foreach ($states as $state) {
-		if($state['state'] == $selectedState)
-		{
-			foreach ($state['stations'] as $city) {
-					if($city['city'] == $selectedCity) {
-						$url = $city['url'];
-					}
-
-				}	
-		}
-
-	}
-	*/
-
 
 	  require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
 
@@ -80,7 +57,6 @@
 		<th>Date</th>
 		<th>Time</th>
 		<th>Temperature</th>
-		<th>Cloud</th>
 	</tr>
 
 <?php
@@ -95,7 +71,6 @@
 			echo '<td>'.$day.'/'.$month.'/'.$year.'</td>';
 			echo '<td>'.$hour.':'.$minute.'</td>';
 			echo '<td>'.$station['air_temp'].'</td>';
-			echo '<td>'.$station['cloud'].'</td>';
 		echo '</tr>';
 
 	}
