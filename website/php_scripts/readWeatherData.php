@@ -7,15 +7,19 @@
 	require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
 
 
+	//Fix format for selected city from GET
 	$selectedCity = str_replace("%20", " ", $selectedCity);
 	$selectedCity = str_replace("+", " ", $selectedCity);
 
+
+	//If state passed through in same var as City, separate out based on delimeter of "-"
 	$delim = strpos($selectedCity, "-");
-	
 	if($delim > 0 && !isset($selectedState)) {
 		$selectedState = substr($selectedCity, $delim + 2);
 		$selectedCity = substr($selectedCity, 0, $delim - 1);
 	}
+
+	//If there is no id for the city, search the db using the city name
 	if(!isset($id))
 	{
 		try{
@@ -125,8 +129,11 @@
 	</tr>
 
 <?php
+	//Loop through all the data, creating one table row for each observation
 	foreach ($stations['observations']['data'] as $station) {
 		echo '<tr>';
+
+			//Split date in to readable format
 			$date = $station['local_date_time_full'];
 			$year = substr($date, 0, 4);
 			$month = substr($date, 4, 2);
