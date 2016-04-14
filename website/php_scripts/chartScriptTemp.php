@@ -37,22 +37,22 @@
             	foreach ($stations['observations']['data'] as $station) {
             		switch ($type){
             			case 'Rain Fall Since 9am':
-            				echo $station['rain_trace'].',';
+            				echo str_replace("-", "0", $station['rain_trace']).',';
             				break;
             			case 'Wind Speed':
-            				echo $station['wind_spd_kmh'].',';
+            				echo str_replace("-", "0", $station['wind_spd_kmh']).',';
             				break;
             			case 'Gust Speed':
-            				echo $station['gust_kmh'].',';
+            				echo str_replace("-", "0", $station['gust_kmh']).',';
             				break;
             			case 'Pressure':
-            				echo $station['press'].',';
+            				echo str_replace("-", "0", $station['press']).',';
             				break;
             			case 'Relative Humidity':
-            				echo $station['rel_hum'].',';
+            				echo str_replace("-", "0", $station['rel_hum']).',';
             				break;
             			default: 
-            				echo $station['air_temp'].',';
+            				echo str_replace("-", "0", $station['air_temp']).',';
             				break;
             		}
             	}
