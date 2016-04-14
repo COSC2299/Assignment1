@@ -15,7 +15,7 @@
 		$selectedCity = substr($selectedCity, 0, $delim - 1);
 	}
 
-	echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to towns in '.$selectedState.'</a></p>';
+	echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
 	
 	echo '<br>';
 	echo '<br>';

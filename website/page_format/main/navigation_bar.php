@@ -4,7 +4,7 @@
          <li><a href="all_states.php">States</a></li>
          <li><a href="state.php">Stations</a></li>
          <li><a href="favourites.php">My Favourites</a></li>
-         <li><a href="#">Help</a></li>
+         <li><a href="help.php">Help</a></li>
       </ul>
    </div>
    
