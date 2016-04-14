@@ -32,11 +32,11 @@
       <?php require 'page_format/main/header.php';?>
       <div id="navigation_bar">
       	<ul id="navigation_menu">
-         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>">Temperature</a></li>
-         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Rain%20Fall%20Since%209am&time=12';?>">Rain</a></li>
-         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time=12';?>">Wind</a></li>
-         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Pressure&time=12';?>">Pressure</a></li>
-         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Relative%20Humidity&time=12';?>">Humidity</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Temperature&time='.$time;?>">Temperature</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Rain%20Fall%20Since%209am&time='.$time;?>">Rain</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time='.$time;?>">Wind</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Pressure&time='.$time;?>">Pressure</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Relative%20Humidity&time='.$time;?>">Humidity</a></li>
       	</ul>
    	</div>
    	<div id="navigation_bar_spacing"></div>
@@ -54,8 +54,8 @@
                			echo '<br>';
                      }
                      if ($type == 'Wind Speed' || $type == 'Gust Speed'){
-                     	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time=12'.'">Wind Speed</a></p>';
-               			echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Gust%20Speed&time=12'.'">Gust Speed</a></p>';
+                     	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time='.$time.'">Wind Speed</a></p>';
+               			echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Gust%20Speed&time='.$time.'">Gust Speed</a></p>';
                      }
                ?>
                <p><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=12';?>">12 Hour Chart</a></p>
