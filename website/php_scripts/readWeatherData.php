@@ -4,7 +4,9 @@
 <p><a href="all_states.php">Return to States</a></p>
 <?php
 
-	
+	require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
+
+
 	$selectedCity = str_replace("%20", " ", $selectedCity);
 	$selectedCity = str_replace("+", " ", $selectedCity);
 
@@ -13,6 +15,28 @@
 	if($delim > 0 && !isset($selectedState)) {
 		$selectedState = substr($selectedCity, $delim + 2);
 		$selectedCity = substr($selectedCity, 0, $delim - 1);
+	}
+	if(!isset($id))
+	{
+		try{
+	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	                                   // set the PDO error mode to excepti
+	        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	        $sql = 'SELECT id FROM city WHERE name = "'.$selectedCity.'"';
+
+	           
+	           foreach ($conn->query($sql) as $row) {
+	               $id = $row['id'];
+	           }
+	           
+
+	      }
+	      catch(PDOException $e)
+	     {
+	         echo $sql . "<br/>" . $e->getMessage();
+	     }
+
 	}
 
 	echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
@@ -42,7 +66,7 @@
 	*/
 
 
-	  require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
+	  
 
 	  try{
 	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
