@@ -24,7 +24,11 @@
 						
 					echo '<div class="mainList">';				
            		foreach ($conn->query($sql) as $row) {
-               	echo '<div class="menu_item"><a href="city.php?c='.$row['name'].'&s='.$state_name[$sID - 24].'&id='.$row['id'].'&sID='.$sID.'">'.$row['name'].'</a></div>';
+                //replace space for url
+                $stateURL = str_replace(" ", "%20", $state_name[$sID - 24]);
+                $cityURL = str_replace(" ", "%20", $row['name']);
+
+               	echo '<div class="menu_item"><a href="city.php?c='.$cityURL.'&s='.$stateURL.'&id='.$row['id'].'&sID='.$sID.'">'.$row['name'].'</a></div>';
            		}
            		echo '</div>';
            		echo '<br>';
@@ -36,7 +40,11 @@
 
            echo '<div class="mainList">';
            foreach ($conn->query($sql) as $row) {
-               echo '<div class="menu_item"><a href="city.php?c='.$row['name'].'&s='.$selectedState.'&id='.$row['id'].'">'.$row['name'].'</a></div>';
+
+                //replace space for url
+                $stateURL = str_replace(" ", "%20", $selectedState);
+                $cityURL = str_replace(" ", "%20", $row['name']);
+               echo '<div class="menu_item"><a href="city.php?c='.$cityURL.'&s='.$stateURL.'&id='.$row['id'].'">'.$row['name'].'</a></div>';
            }
            echo '</div>';
 

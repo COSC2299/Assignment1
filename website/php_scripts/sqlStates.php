@@ -12,7 +12,9 @@
 
            echo '<div class="mainList">';
            foreach ($conn->query($sql) as $row) {
-               echo '<div class="menu_item"><a href="state.php?s='.$row['name'].'&id='.$row['id'].'">'.$row['name'].'</a></div>';
+                //replace space for url
+               $stateURL = str_replace(" ", "%20", $row['name']);
+               echo '<div class="menu_item"><a href="state.php?s='.$stateURL.'&id='.$row['id'].'">'.$row['name'].'</a></div>';
            }
            echo '</div>';
 

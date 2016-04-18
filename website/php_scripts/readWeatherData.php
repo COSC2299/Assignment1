@@ -42,13 +42,15 @@
 	     }
 
 	}
-
-	echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
+	//replace space for url
+	$stateURL = str_replace(" ", "%20", $selectedState);
+	$cityURL = str_replace(" ", "%20", $selectedCity);
+	echo '<p><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
 	
 	echo '<br>';
 	echo '<br>';
 ?>
-	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Charts</a></p>
+	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Charts</a></p>
 <?php
 	/*
 	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);

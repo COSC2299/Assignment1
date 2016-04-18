@@ -11,7 +11,10 @@
 
            echo '<ul class="mainList">';
            foreach ($conn->query($sql) as $row) {
-               echo '<li><a href="state.php?s='.$row['name'].'&id='.$row['id'].'">'.$row['name'].'</a></li>';
+                $state = $row['name'];
+                //replace space for url
+                $state = str_replace(" ", "%20", $state);
+               echo '<li><a href="state.php?s='.$state.'&id='.$row['id'].'">'.$row['name'].'</a></li>';
            }
            echo '</ul>';
 
