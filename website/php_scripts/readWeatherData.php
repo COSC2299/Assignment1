@@ -1,7 +1,4 @@
 <?php //include 'search.php'; ?>
-<br>
-<br>
-<p><a href="all_states.php">Return to States</a></p>
 <?php
 
 	require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
@@ -45,6 +42,12 @@
 	//replace space for url
 	$stateURL = str_replace(" ", "%20", $selectedState);
 	$cityURL = str_replace(" ", "%20", $selectedCity);
+	
+	echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
+?>
+	<button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Town</button>
+<?php
+   echo '<p><a href="all_states.php">Return to States</a></p>';
 	echo '<p><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
 	
 	echo '<br>';
