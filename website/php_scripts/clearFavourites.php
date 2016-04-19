@@ -5,11 +5,19 @@
 <?php
 	$favID = $_GET['favID'];
 	if ($favID == '-1'){
-		unset($_SESSION['favourites']);	
+		$favList = array();
+		setcookie("favourites", json_encode($favList), time() - (86400 * 40), "/");
 	}
 	else if (isset($_GET['favID'])){
-		unset($_SESSION['favourites'][$favID]);
-      $_SESSION['favourites'] = array_values($_SESSION['favourites']);
+		//unset($_SESSION['favourites'][$favID]);
+      //$_SESSION['favourites'] = array_values($_SESSION['favourites']);
+      $favList = array();
+		$favList = json_decode($_COOKIE['favourites'], true);
+
+		unset($favList[$favID]);
+		$favList = array_values($favList);
+		
+		setcookie("favourites", json_encode($favList), time() + (86400 * 40), "/");
 	}
 ?>
 

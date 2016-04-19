@@ -12,7 +12,8 @@
    	function clearFav($favID) {
    		$url = "php_scripts/clearFavourites.php?favID=" + $favID;
    		console.log($url);
-      	$.post( $url,{}, function( data ) {        
+      	$.post( $url,{}, function( data ) {  
+      		console.log(data);      
             location.reload();
          });
       }
@@ -35,7 +36,7 @@
             <div id="main_content_text">
                <h1>My Favourites</h1>
                	<?php
-                  	$favs = $_SESSION['favourites'];
+                  	$favs = json_decode($_COOKIE['favourites'], true);
                   	
                   	if (count($favs) != 0){
                   	   echo '<table border="0" style="width:90%; margin:auto;">';

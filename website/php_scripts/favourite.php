@@ -1,15 +1,15 @@
 <?php
 	session_start();
-
+	
 	$fav = $_POST['city'];
 	$state = $_POST['state'];
 	$id = $_POST['id'];
 
 	$favList = array();
-	$favList = $_SESSION['favourites'];
+	$favList = json_decode($_COOKIE['favourites'], true);
 
 	$j = count($favList);
-	echo $j;
+	//echo $j;
 
 	$exists = false;
 	for ($i=0; $i < $j ; $i++) { 
@@ -24,14 +24,12 @@
 		$favList[$j]['id'] = $id;
 	}
 		
-	
-	$_SESSION['favourites'] = $favList;
+	print_r($favList);
+	//$_COOKIE['favourites'] = $favList;
+	setcookie("favourites", json_encode($favList), time() + (86400 * 40), "/");
+	print_r(json_decode(json_encode($favList)), true);
 
-	echo 'Fav:'.$fav;
-	print_r($_SESSION);
-
-
-
+	/*
 	require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
 	try{
 	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -72,7 +70,7 @@
 	{
 	    echo $sql . "<br/>" . $e->getMessage();
 	}
-
+	*/
 
 	//unset($_SESSION['favourites']);
 	//setcookie('favourites','', 1); //10 years

@@ -11,7 +11,8 @@
    <script type="text/javascript">
    	function fav(city, state, id) {
          $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
-           	location.reload();
+            console.log(data);
+            location.reload();
          });
       }
    </script>
