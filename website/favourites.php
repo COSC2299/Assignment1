@@ -9,12 +9,12 @@
    <title>Weather Station - My Favourites</title>
    <?php require 'page_format/main/head.php';?>
    <script type="text/javascript">
-   	function clearFav($favID) {
+   	function clearFav($favID) { // function to remove favourites
    		$url = "php_scripts/clearFavourites.php?favID=" + $favID;
    		console.log($url);
-      	$.post( $url,{}, function( data ) {  
+      	$.post( $url,{}, function( data ) {  // post to clearFavourites php script
       		console.log(data);      
-            location.reload();
+            location.reload(); // reload page after adding favourite
          });
       }
    </script>
@@ -36,7 +36,7 @@
             <div id="main_content_text">
                <h1>My Favourites</h1>
                	<?php
-                  	$favs = json_decode($_COOKIE['favourites'], true);
+                  	$favs = json_decode($_COOKIE['favourites'], true); // get array from cookie
                   	
                   	if (count($favs) != 0){
                   	   echo '<table border="0" style="width:90%; margin:auto;">';
@@ -48,20 +48,20 @@
                   	}
                   	
                   	
-                  	for ($i=0; $i < count($favs); $i++) { 
+                  	for ($i=0; $i < count($favs); $i++) { // print all favourites
                   		echo '<tr>';
-                     	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].'</a></td>';
-                     	echo '<td><a href="state.php?&s='.$favs[$i]['state'].'&id='.$favs[$i]['sID'].'">'.$favs[$i]['state'].'</a></td>';
-                     	echo '<td><button onclick="clearFav('.$i.')">Unfavourite This Station</button></td>';
+                     	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].'</a></td>'; // print station name
+                     	echo '<td><a href="state.php?&s='.$favs[$i]['state'].'&id='.$favs[$i]['sID'].'">'.$favs[$i]['state'].'</a></td>';	// print state name
+                     	echo '<td><button onclick="clearFav('.$i.')">Unfavourite This Station</button></td>'; // create unfavourite button
                      	echo '<tr>';
                   	}
-                  	if (count($favs) == 0){
+                  	if (count($favs) == 0){ // if there are no favourite, print message
                   		echo '<p>You currently do not have any favourites</p>';
                   	}
                   	else{
                   		echo '</table>';
                   		echo '<br>';
-                  		echo '<button onclick="clearFav(-1)">Remove All Favourites</button>';
+                  		echo '<button onclick="clearFav(-1)">Remove All Favourites</button>'; // create remove all favourites button
                   	}
                	?> 
             </div>

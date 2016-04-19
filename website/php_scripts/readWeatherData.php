@@ -55,27 +55,6 @@
 ?>
 	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Charts</a></p>
 <?php
-	/*
-	$states = json_decode(file_get_contents(dirname(__DIR__).'/php_scripts/stations.json'), true);
-
-	$url = "";
-
-	foreach ($states as $state) {
-		if($state['state'] == $selectedState)
-		{
-			foreach ($state['stations'] as $city) {
-					if($city['city'] == $selectedCity) {
-						$url = $city['url'];
-					}
-
-				}	
-		}
-
-	}
-	*/
-
-
-	  
 
 	  try{
 	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
