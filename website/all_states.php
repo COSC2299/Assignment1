@@ -19,7 +19,8 @@
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
             <div id="main_content_text">
-            <h1>Browse States</h1>
+            <br/>
+            <p class="title_large">Browse States</p>
             <br/>
             <br/>
             <?php //include 'php_scripts/search.php'; ?>

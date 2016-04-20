@@ -19,11 +19,19 @@
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
             <div id="main_content_text">
-            <h1>Home</h1>
+            <br>
+            <br>
+            <br>
+            <p class="title_medium">Search</p>
+            <br>
             <div id="search_index">
             	<?php include 'php_scripts/search.php';?>
             </div>
-            <h2>My Favourites</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p class="title_medium">My Favourites</p>
                	<?php
                   	$favs = json_decode($_COOKIE['favourites'], true);
                   	
@@ -48,8 +56,10 @@
                   		echo '</table>';
                   		echo '<br>';
                   	}
-               	?> 
-            <h2>Browse States</h2>
+               	?>
+            <br>
+            <br>
+            <p class="title_medium">Browse States</p>
             <?php //include 'php_scripts/search.php'; ?>
                <?php //include 'php_scripts/listStates.php'; 
                      include 'php_scripts/sqlStates.php'; 

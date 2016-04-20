@@ -46,17 +46,8 @@
             <div id="main_content_text">
             	<br>
                <?php 
-                     echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
-                     echo '<h2>'.$type.' - Past '.$time.' Hours</h2>';
-                     if ($type == 'Rain Fall Since 9am'){
-                     	echo '<p>Please note rain data resets at 9:00am</p>';
-                     	echo '<br>';
-               			echo '<br>';
-                     }
-                     if ($type == 'Wind Speed' || $type == 'Gust Speed'){
-                     	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time='.$time.'">Wind Speed</a></p>';
-               			echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Gust%20Speed&time='.$time.'">Gust Speed</a></p>';
-                     }
+							echo '<p class="title_large">' . $selectedCity . '</p>';
+							echo '<p class="title_medium">' . $selectedState . '</p>';
                ?>
                
                

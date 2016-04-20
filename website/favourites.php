@@ -34,7 +34,9 @@
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
             <div id="main_content_text">
-               <h1>My Favourites</h1>
+            	<br>
+               <p class="title_large">My Favourites</p>
+               <br>
                	<?php
                   	$favs = json_decode($_COOKIE['favourites'], true); // get array from cookie
                   	
@@ -60,7 +62,6 @@
                   	}
                   	else{
                   		echo '</table>';
-                  		echo '<br>';
                   		echo '<br>';
                   		echo '<p class="center"><a href="#" onclick="clearFav(-1)">Remove All Favourites</a></p>'; // create remove all favourites button
                   	}

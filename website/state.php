@@ -34,8 +34,10 @@
                      }
                      //echo $state;
                      //dirname(__DIR__).'/
-                     //include 'php_scripts/listCitiesForState.php'; 
-                     echo '<h1>Browse Stations - ' . $selectedState . '</h1>';
+                     //include 'php_scripts/listCitiesForState.php';
+                     echo '<br>';
+                     echo '<p class="title_large">Browse Stations - ' . $selectedState . '</p>';
+                     echo '<br>';
                      include 'php_scripts/sqlCitiesForState.php'; 
 
                   ?>
