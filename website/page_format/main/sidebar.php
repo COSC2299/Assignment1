@@ -10,7 +10,7 @@
             </div>
             <br/>
             <div id="sidebar_info">    
-               <h2><a href="favourites.php">Favourites</a></h2>
+               <h2><a href="favourites.php">My Favourites</a></h2>
                <?php
                	$shortState = array("Antarctica"=>"AN", "Canberra"=>"ACT", "New South Wales"=>"NSW",
                	 	"Northern Territory"=>"NT", "Queensland"=>"QLD", "South Australia"=>"SA",

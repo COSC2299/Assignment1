@@ -3,7 +3,7 @@
     var availableTags = [
       <?php include dirname(__DIR__).'/php_scripts/commaCities.php'; ?>
     ];
-    $( "#tags" ).autocomplete({
+    $( "#searchTags" ).autocomplete({
       source: availableTags
     });
   });
@@ -11,9 +11,8 @@
 
  <form action="city.php" method="get">
   <div class="ui-widget">
-    <label for="tags">Search: </label>
-    <input id="tags" name="c">
-    <input type="submit" value="Go" />
+    <p><input id="searchTags" name="c"></p>
+    <p><input type="submit" value="Search"></p>
   </div>
 </form>
  

@@ -209,6 +209,17 @@ a:active {
    text-align: center;
 }
 
+#searchTags{
+	width: 90%;
+	text-align: center;
+}
+
+#search_index{
+	width: 500px;
+	margin: auto;
+	text-align: center;
+}
+
 /* End Side Bar */
 
 /* Footer */
