@@ -6,11 +6,16 @@
             </div>
             <br/>
             <div id="sidebar_info">    
-               <h2>Favourites</h2>
+               <h2><a href="favourites.php">Favourites</a></h2>
                <?php
+               	$shortState = array("Antarctica"=>"AN", "Canberra"=>"ACT", "New South Wales"=>"NSW",
+               	 	"Northern Territory"=>"NT", "Queensland"=>"QLD", "South Australia"=>"SA",
+               	 	"Tasmania"=>"TAS", "Victoria"=>"VIC", "Western Australia"=>"WA");
                   $favs = json_decode($_COOKIE['favourites'], true);
-                  for ($i=0; $i < count($favs); $i++) { 
-                     echo '<p><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].', '.$favs[$i]['state'].'</a></p>';
+                  
+                  for ($i=0; $i < count($favs); $i++) {
+                  	$stateFav = $shortState[$favs[$i]['state']];
+                     echo '<p><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].', '.$stateFav.'</a></p>';
                   }
                   //print_r($favs);
                   //echo count($favs);

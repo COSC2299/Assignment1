@@ -64,12 +64,13 @@
 	if(!$exists) // if it doesn't exist, add to array
 	{
 ?>
-		<button onclick="fav('<?php echo str_replace("'", "&#146;", $selectedCity); ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Town</button>
+		<p><a href="#" onclick="fav('<?php echo str_replace("'", "&#146;", $selectedCity); ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Station</a></p>
 <?php
 	}
 	else{
-		echo '<td><button onclick="clearFav('.$favID.')">Unfavourite This Station</button></td>'; // create unfavourite button
+		echo '<p><a href="#" onclick="clearFav('.$favID.')">Unfavourite This Station</a></p>'; // create unfavourite button
 	}
+	echo '<br>';
 ?>
 
 
@@ -78,7 +79,6 @@
    echo '<p><a href="all_states.php">Return to States</a></p>';
 	echo '<p><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
 	
-	echo '<br>';
 	echo '<br>';
 ?>
 	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Charts</a></p>

@@ -52,7 +52,7 @@
                   		echo '<tr>';
                      	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].'</a></td>'; // print station name
                      	echo '<td><a href="state.php?&s='.$favs[$i]['state'].'&id='.$favs[$i]['sID'].'">'.$favs[$i]['state'].'</a></td>';	// print state name
-                     	echo '<td><button onclick="clearFav('.$i.')">Unfavourite This Station</button></td>'; // create unfavourite button
+                     	echo '<td><a href="#" onclick="clearFav('.$i.')">Unfavourite '.$favs[$i]['city'].'</a></td>'; // create unfavourite button
                      	echo '<tr>';
                   	}
                   	if (count($favs) == 0){ // if there are no favourite, print message
@@ -61,7 +61,8 @@
                   	else{
                   		echo '</table>';
                   		echo '<br>';
-                  		echo '<button onclick="clearFav(-1)">Remove All Favourites</button>'; // create remove all favourites button
+                  		echo '<br>';
+                  		echo '<p class="center"><a href="#" onclick="clearFav(-1)">Remove All Favourites</a></p>'; // create remove all favourites button
                   	}
                	?> 
             </div>
