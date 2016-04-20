@@ -11,7 +11,7 @@
 </head>
    
    <body>
-      <?php include 'page_format/main/attention_bar.php';?>
+      <?php //include 'page_format/main/attention_bar.php';?>
       <?php require 'page_format/main/header.php';?>
       <?php require 'page_format/main/navigation_bar.php';?>
 

@@ -29,7 +29,6 @@
                   		echo '<tr>';
 								echo '<th>Station</th>';
 								echo '<th>State</th>';
-								echo '<th></th>';
 								echo '</tr>';
                   	}
                   	
@@ -38,7 +37,7 @@
                   		echo '<tr>';
                      	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].'</a></td>';
                      	echo '<td><a href="state.php?&s='.$favs[$i]['state'].'&id='.$favs[$i]['sID'].'">'.$favs[$i]['state'].'</a></td>';
-                     	echo '<tr>';
+                     	echo '</tr>';
                   	}
                   	if (count($favs) == 0){
                   		echo '<p>You currently do not have any favourites</p>';

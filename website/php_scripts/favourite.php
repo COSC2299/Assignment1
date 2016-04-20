@@ -23,6 +23,12 @@
 		$favList[$j]['state'] = $state;
 		$favList[$j]['id'] = $id;
 		setcookie("favourites", json_encode($favList), time() + (86400 * 40), "/"); // store array in cookie
+		$_SESSION['showAttentionBar'] = true;
+		$_SESSION['attentionBarText'] = $fav.', '.$state.' has been successfully added to your favourites.';
+	}
+	else{
+		$_SESSION['showAttentionBar'] = true;
+		$_SESSION['attentionBarText'] = $fav.', '.$state.' has already been added to your favourites.';
 	}
 		
 	print_r($favList);
