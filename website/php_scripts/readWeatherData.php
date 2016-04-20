@@ -121,24 +121,8 @@
 
 <br>
 
-<table border='1' style='width:100%; margin:auto;'>
-	<tr>
-		<th rowspan='2'>Date</th>
-		<th rowspan='2'>Time</th>
-		<th rowspan='2'>Temperature</th>
-		<th rowspan='2'>Cloud</th>
-		<th rowspan='2'>Rain (mm)<br>Since 9am</th>
-		<th colspan='3'>Wind</th>
-		<th rowspan='2'>Pressure<br>hPa</th>
-		<th rowspan='2'>Relative<br>Humidity</th>
-	</tr>
-	<tr>
-		<th>Direction</th>
-		<th>Speed<br>km/m</th>
-		<th>Gust<br>km/m</th>
-	</tr>
-
 <?php
+	$firstTable = true;
 	//Loop through all the data, creating one table row for each observation
 	foreach ($stations['observations']['data'] as $station) {
 		echo '<tr>';
@@ -150,6 +134,41 @@
 			$day = substr($date, 6, 2);
 			$hour = substr($date, 8, 2);
 			$minute = substr($date, 10, 2);
+			
+			
+			if($currDate != $day.$month.$year && $firstTable == false){
+				echo '</tbody>';
+				echo '</table>';
+				echo '<br>';
+				echo '<br>';
+			}
+			
+			$firstTable = false;
+			
+			if($currDate != $day.$month.$year){
+				$currDate = $day.$month.$year;
+?>
+				<h3 class="center"><?php echo $day.'/'.$month.'/'.$year;?></h3>
+				<table border='1' style='width:100%; margin:auto;'>
+				<tbody>
+				<tr>
+					<th rowspan='2'>Date</th>
+					<th rowspan='2'>Time</th>
+					<th rowspan='2'>Temperature</th>
+					<th rowspan='2'>Cloud</th>
+					<th rowspan='2'>Rain (mm)<br>Since 9am</th>
+					<th colspan='3'>Wind</th>
+					<th rowspan='2'>Pressure<br>hPa</th>
+					<th rowspan='2'>Relative<br>Humidity</th>
+				</tr>
+				<tr>
+					<th>Direction</th>
+					<th>Speed<br>km/m</th>
+					<th>Gust<br>km/m</th>
+				</tr>
+<?php
+			}
+			
 			echo '<td>'.$day.'/'.$month.'/'.$year.'</td>';
 			echo '<td>'.$hour.':'.$minute.'</td>';
 			echo '<td>'.$station['air_temp'].'</td>';
@@ -160,8 +179,7 @@
 			echo '<td>'.$station['gust_kmh'].'</td>';
 			echo '<td>'.$station['press'].'</td>';
 			echo '<td>'.$station['rel_hum'].'</td>';
-		echo '</tr>';
-
+			echo '</tr>';
 	}
 
 ?>
