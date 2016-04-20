@@ -2,7 +2,11 @@
             <br/>
             <br/>
             <div id="search_bar">
-            	<?php include 'php_scripts/search.php'; ?>
+            	<?php 
+            		if (basename($_SERVER['PHP_SELF']) != 'index.php'){
+            			include 'php_scripts/search.php';
+            		}
+            	?>
             </div>
             <br/>
             <div id="sidebar_info">    

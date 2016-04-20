@@ -20,6 +20,7 @@
          <div id="main_content">
             <div id="main_content_text">
             <h1>Home</h1>
+            <?php include 'php_scripts/search.php';?>
             <h2>My Favourites</h2>
                	<?php
                   	$favs = json_decode($_COOKIE['favourites'], true);
