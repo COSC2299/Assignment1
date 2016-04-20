@@ -45,7 +45,35 @@
 	
 	echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
 ?>
-	<button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Town</button>
+
+
+<?php
+	$favList = array();
+	$favList = json_decode($_COOKIE['favourites'], true); // get current list of favourites
+
+	$j = count($favList); // count how many favourites exist
+	//echo $j;
+
+	$exists = false;
+	for ($i=0; $i < $j ; $i++) {  // check if favourite already exists
+		if($id == $favList[$i]['id']){
+			$exists = true;
+			$favID = $i;
+		}
+	}
+	if(!$exists) // if it doesn't exist, add to array
+	{
+?>
+		<button onclick="fav('<?php echo str_replace("'", "&#146;", $selectedCity); ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Town</button>
+<?php
+	}
+	else{
+		echo '<td><button onclick="clearFav('.$favID.')">Unfavourite This Station</button></td>'; // create unfavourite button
+	}
+?>
+
+
+
 <?php
    echo '<p><a href="all_states.php">Return to States</a></p>';
 	echo '<p><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
@@ -62,18 +90,16 @@
 	        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	        $sql = 'SELECT url FROM city WHERE id = '.$id;
-
-	           
+ 
 	           foreach ($conn->query($sql) as $row) {
 	               $url = $row['url'];
 	           }
-	           
-
 	      }
-	      catch(PDOException $e)
-	     {
+	   	
+	   	catch(PDOException $e)
+	     	{
 	         echo $sql . "<br/>" . $e->getMessage();
-	     }
+	     	}
 	                     
 
 	$string = file_get_contents($url);
