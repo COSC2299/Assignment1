@@ -52,7 +52,7 @@
             				echo str_replace("-", "0", $station['rel_hum']).',';
             				break;
             			default: 
-            				echo str_replace("-", "0", $station['air_temp']).',';
+            				echo $station['air_temp'].',';
             				break;
             		}
             	}

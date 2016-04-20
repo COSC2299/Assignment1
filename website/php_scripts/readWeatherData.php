@@ -42,8 +42,9 @@
 	//replace space for url
 	$stateURL = str_replace(" ", "%20", $selectedState);
 	$cityURL = str_replace(" ", "%20", $selectedCity);
-	
-	echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
+	echo '<br>';
+	echo '<p class="title_large">' . $selectedCity . '</p>';
+	echo '<p class="title_medium">' . $selectedState . '</p>';
 ?>
 
 
@@ -114,13 +115,12 @@
 
 <?php
 	foreach ($stations['observations']['header'] as $header) {
-		echo '<h2 class="center">'.$header['product_name'].'</h2>';
+		echo '<p class="title_small">'.$header['product_name'].'</p>';
 		echo '<p class="center">'.$header['refresh_message'].'</p>';
 	}
 ?>
 
 <br>
-
 
 <?php
 
@@ -179,6 +179,8 @@
 		echo '<p class="center">3pm temperature: '.$threePmTemp.'&deg;C</p>';
 	}
 ?>
+
+<br>
 
 <?php
 	$currDate = 0;

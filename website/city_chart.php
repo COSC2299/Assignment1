@@ -58,8 +58,6 @@
                			echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Gust%20Speed&time='.$time.'">Gust Speed</a></p>';
                      }
                ?>
-               <p><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=12';?>">12 Hour Chart</a></p>
-               <p><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=24';?>">24 Hour Chart</a></p>
                
                
                <?php include 'php_scripts/readWeatherDataChart.php';?>

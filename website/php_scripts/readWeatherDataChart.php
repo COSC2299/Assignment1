@@ -1,6 +1,3 @@
-<?php //include 'search.php'; ?>
-<br>
-<br>
 <?php
 
 	
@@ -15,9 +12,6 @@
 	}
 
 	//echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to towns in '.$selectedState.'</a></p>';
-	
-	echo '<br>';
-	echo '<br>';
 
 	  require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
 
@@ -38,18 +32,38 @@
 	      catch(PDOException $e)
 	     {
 	         echo $sql . "<br/>" . $e->getMessage();
-	     }
-	                     
-
+	     }        
 	$string = file_get_contents($url);
 	$stations = json_decode($string, true);
-
-	//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
-	//echo '<br />';
 	
+	$numEntries = count($stations['observations']['data']) - 1;
+	$halfNumEntries = ($numEntries - $numEntries%2)/2;
 	
-
+	echo '<br>';
+	
+	if ($halfNumEntries < 12){
+		echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$halfNumEntries.'">Show Past '.$halfNumEntries.' Entries</a></p>';
+	}
+	
+	if ($numEntries >= 12){
+		echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=12">Show Past 12 Entries</a></p>';
+	}
+	
+	if ($halfNumEntries < 24 && $halfNumEntries > 12){
+		echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$halfNumEntries.'">Show Past '.$halfNumEntries.' Entries</a></p>';
+	}
+	
+	if ($numEntries >= 24){
+		echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=24">Show Past 24 Entries</a></p>';
+	}
+	
+	if ($halfNumEntries > 24){
+		echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$halfNumEntries.'">Show Past '.$halfNumEntries.' Entries</a></p>';
+	}
+	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$numEntries.'">Show All '.$numEntries.' Entries</a></p>';
 ?>
+	<br>
+	<br>
 
 <?php
 	/*
