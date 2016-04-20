@@ -114,14 +114,74 @@
 
 <?php
 	foreach ($stations['observations']['header'] as $header) {
-		echo '<p>'.$header['product_name'].'</p>';
-		echo '<p>'.$header['refresh_message'].'</p>';
+		echo '<h2 class="center">'.$header['product_name'].'</h2>';
+		echo '<p class="center">'.$header['refresh_message'].'</p>';
 	}
 ?>
 
 <br>
 
+
 <?php
+
+	$minTemp = 100; // initialise $minTemp
+	$maxTemp = -100; // initialise $maxTemp
+	$currDate = 0;
+	$nineAmTemp = 1000;
+	$threePmTemp = 1000;
+	
+	foreach ($stations['observations']['data'] as $station) {
+		$date = $station['local_date_time_full'];
+		$year = substr($date, 0, 4);
+		$month = substr($date, 4, 2);
+		$day = substr($date, 6, 2);
+		$hour = substr($date, 8, 2);
+		$minute = substr($date, 10, 2);
+		
+		if ($currDate == 0){
+			$currDate = $day . $month . $year;
+		}
+		
+		if ($currDate == $day.$month.$year){
+			if ($station['air_temp'] < $minTemp){
+				$minTemp = $station['air_temp'];
+				$minHour = $hour;
+				$minMinute = $minute;
+			}
+			if ($station['air_temp'] > $maxTemp){
+				$maxTemp = $station['air_temp'];
+				$maxHour = $hour;
+				$maxMinute = $minute;
+			}
+			if ($hour == '09'){
+				$nineAmTemp = $station['air_temp'];
+			}
+			if ($hour == '15'){
+				$threePmTemp = $station['air_temp'];
+			}
+		}
+		//echo $hour;
+	}
+	
+	echo '<p class="center">Maximum temperature '.$maxTemp.'&deg;C, today at '.$maxHour.':'.$maxMinute.'</p>';
+	echo '<p class="center">Minimum temperature '.$minTemp.'&deg;C, today at '.$minHour.':'.$minMinute.'</p>';
+	echo '<br>';
+	if ($nineAmTemp == 1000){
+		echo '<p class="center">9am temperature not available</p>';
+	}
+	else{
+		echo '<p class="center">9am temperature: '.$nineAmTemp.'&deg;C</p>';
+	}
+	if ($threePmTemp == 1000){
+		echo '<p class="center">3pm temperature not available</p>';
+	}
+	else{
+		echo '<p class="center">3pm temperature: '.$threePmTemp.'&deg;C</p>';
+	}
+?>
+
+<?php
+	$currDate = 0;
 	$firstTable = true;
 	//Loop through all the data, creating one table row for each observation
 	foreach ($stations['observations']['data'] as $station) {
