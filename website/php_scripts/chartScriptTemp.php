@@ -26,7 +26,7 @@
             }
         ?>],
         datasets: [{
-            label: "Temperature",
+            label: "<?php echo $type;?>",
             fillColor: "rgba(220,220,220,0.2)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",

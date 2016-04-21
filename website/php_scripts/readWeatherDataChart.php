@@ -63,8 +63,8 @@
 	}
 	echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$numEntries.'">Show Past '.$numEntries.' Entries</a></td>';
 
-	echo '<tr>';
-	echo '<table>';
+	echo '</tr>';
+	echo '</table>';
 ?>
 
 	<br>
