@@ -2,6 +2,8 @@
    session_start();
 ?>
 
+<?php require 'php_scripts/session_check.php'; ?>
+
 <!doctype html>
 
 <html>  
@@ -11,7 +13,16 @@
    <script type="text/javascript">
    	function fav(city, state, id) {
          $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
-           	location.reload();
+            console.log(data);
+            location.reload();
+         });
+      }
+   	function clearFav($favID) { // function to remove favourites
+   		$url = "php_scripts/clearFavourites.php?favID=" + $favID;
+   		console.log($url);
+      	$.post( $url,{}, function( data ) {  // post to clearFavourites php script
+      		console.log(data);      
+            location.reload(); // reload page after adding favourite
          });
       }
    </script>
@@ -31,9 +42,7 @@
                      $selectedCity = $_GET['c'];
                      $id = $_GET['id'];
                      $sID = $_GET['sID'];
-                     echo '<h1>' . $selectedCity . ' - ' . $selectedState . '</h1>';
-               ?>
-               <button onclick="fav('<?php echo $selectedCity; ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Town</button>
+             	?>
                <?php
                   include 'php_scripts/readWeatherData.php'; 
                ?>

@@ -1,6 +1,3 @@
-<?php //include 'search.php'; ?>
-<br>
-<br>
 <?php
 
 	
@@ -15,9 +12,6 @@
 	}
 
 	//echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to towns in '.$selectedState.'</a></p>';
-	
-	echo '<br>';
-	echo '<br>';
 
 	  require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
 
@@ -38,35 +32,52 @@
 	      catch(PDOException $e)
 	     {
 	         echo $sql . "<br/>" . $e->getMessage();
-	     }
-	                     
-
+	     }        
 	$string = file_get_contents($url);
 	$stations = json_decode($string, true);
-
-	//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
-	//echo '<br />';
 	
+	$numEntries = count($stations['observations']['data']) - 1;
+	$halfNumEntries = ($numEntries - $numEntries%2)/2;
 	
-
-?>
-
-<?php
-	/*
-	foreach ($stations['observations']['data'] as $station) {
-		echo '<tr>';
-			$date = $station['local_date_time_full'];
-			$year = substr($date, 0, 4);
-			$month = substr($date, 4, 2);
-			$day = substr($date, 6, 2);
-			$hour = substr($date, 8, 2);
-			$minute = substr($date, 10, 2);
-			echo '<td>'.$day.'/'.$month.'/'.$year.'</td>';
-			echo '<td>'.$hour.':'.$minute.'</td>';
-			echo '<td>'.$station['air_temp'].'</td>';
-		echo '</tr>';
-
+	echo '<br>';
+	echo "<table style='width:100%; margin:auto;'>";
+	echo '<tr>';
+	if ($halfNumEntries < 12){
+		echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$halfNumEntries.'">Show Past '.$halfNumEntries.' Entries</a></td>';
 	}
-	*/
+	
+	if ($numEntries >= 12){
+		echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=12">Show Past 12 Entries</a></td>';
+	}
+	
+	if ($halfNumEntries < 24 && $halfNumEntries > 12){
+		echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$halfNumEntries.'">Show Past '.$halfNumEntries.' Entries</a></td>';
+	}
+	
+	if ($numEntries >= 24){
+		echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time=24">Show Past 24 Entries</a></td>';
+	}
+	
+	if ($halfNumEntries > 24){
+		echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$halfNumEntries.'">Show Past '.$halfNumEntries.' Entries</a></td>';
+	}
+	echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$numEntries.'">Show Past '.$numEntries.' Entries</a></td>';
+
+	echo '</tr>';
+	echo '</table>';
 ?>
+
+	<br>
+	<br>
+<?php
+	echo '<br>';
+   echo '<p class="title_small">'.$type.' - Past '.$time.' Entries</p>';
+	if ($type == 'Rain Fall Since 9am'){
+   	echo '<p class="center">Please note rain data resets at 9:00am</p>';
+      echo '<br>';
+   }
+   if ($type == 'Wind Speed' || $type == 'Gust Speed'){
+      echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time='.$time.'">Wind Speed</a></p>';
+    	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Gust%20Speed&time='.$time.'">Gust Speed</a></p>';
+   }
 

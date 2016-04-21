@@ -1,6 +1,9 @@
 <?php
    session_start();
 ?>
+
+<?php require 'php_scripts/session_check.php'; ?>
+
 <?php
 	$selectedState = $_GET['s'];
 	if ($selectedState == null){
@@ -17,7 +20,7 @@
 </head>
    
    <body>
-      <?php include 'page_format/main/attention_bar.php';?>
+      <?php //include 'page_format/main/attention_bar.php';?>
       <?php require 'page_format/main/header.php';?>
       <?php require 'page_format/main/navigation_bar.php';?>
 
@@ -34,8 +37,10 @@
                      }
                      //echo $state;
                      //dirname(__DIR__).'/
-                     //include 'php_scripts/listCitiesForState.php'; 
-                     echo '<h1>Browse Stations - ' . $selectedState . '</h1>';
+                     //include 'php_scripts/listCitiesForState.php';
+                     echo '<br>';
+                     echo '<p class="title_large">Browse Stations - ' . $selectedState . '</p>';
+                     echo '<br>';
                      include 'php_scripts/sqlCitiesForState.php'; 
 
                   ?>

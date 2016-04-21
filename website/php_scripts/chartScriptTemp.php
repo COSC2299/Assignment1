@@ -26,7 +26,7 @@
             }
         ?>],
         datasets: [{
-            label: "Temperature",
+            label: "<?php echo $type;?>",
             fillColor: "rgba(220,220,220,0.2)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
@@ -52,7 +52,7 @@
             				echo str_replace("-", "0", $station['rel_hum']).',';
             				break;
             			default: 
-            				echo str_replace("-", "0", $station['air_temp']).',';
+            				echo $station['air_temp'].',';
             				break;
             		}
             	}

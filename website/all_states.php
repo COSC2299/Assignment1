@@ -2,6 +2,8 @@
    session_start();
 ?>
 
+<?php require 'php_scripts/session_check.php'; ?>
+
 <!doctype html>
 
 <html>  
@@ -11,7 +13,7 @@
 </head>
    
    <body>
-      <?php include 'page_format/main/attention_bar.php';?>
+      <?php //include 'page_format/main/attention_bar.php';?>
       <?php require 'page_format/main/header.php';?>
       <?php require 'page_format/main/navigation_bar.php';?>
 
@@ -19,7 +21,8 @@
          <?php require 'page_format/main/sidebar.php';?>  
          <div id="main_content">
             <div id="main_content_text">
-            <h1>Browse States</h1>
+            <br/>
+            <p class="title_large">Browse States</p>
             <br/>
             <br/>
             <?php //include 'php_scripts/search.php'; ?>

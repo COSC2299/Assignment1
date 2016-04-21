@@ -2,6 +2,8 @@
    session_start();
 ?>
 
+<?php require 'php_scripts/session_check.php'; ?>
+
 <!doctype html>
 
 <html>  
@@ -11,7 +13,7 @@
 </head>
    
    <body>
-      <?php include 'page_format/main/attention_bar.php';?>
+      <?php //include 'page_format/main/attention_bar.php';?>
       <?php require 'page_format/main/header.php';?>
       <?php require 'page_format/main/navigation_bar.php';?>
 
