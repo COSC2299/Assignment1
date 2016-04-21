@@ -47,6 +47,7 @@
 	echo '<p class="title_medium">' . $selectedState . '</p>';
 ?>
 
+	<p><a href="#" onclick="location.reload()">Refresh</a></p>
 
 <?php
 	$favList = array();

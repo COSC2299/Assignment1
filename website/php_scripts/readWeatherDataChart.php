@@ -40,7 +40,7 @@
 	$halfNumEntries = ($numEntries - $numEntries%2)/2;
 	
 	echo '<br>';
-	echo "<table border='0' style='width:100%; margin:auto;'>";
+	echo "<table style='width:100%; margin:auto;'>";
 	echo '<tr>';
 	if ($halfNumEntries < 12){
 		echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type='.$type.'&time='.$halfNumEntries.'">Show Past '.$halfNumEntries.' Entries</a></td>';
