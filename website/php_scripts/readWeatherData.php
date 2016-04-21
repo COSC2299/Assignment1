@@ -92,10 +92,43 @@
 	     {
 	         echo $sql . "<br/>" . $e->getMessage();
 	     }
-	                     
+	              
 
-	$string = file_get_contents($url);
-	$stations = json_decode($string, true);
+	$inFav = false;
+
+	foreach($_SESSION['favourites'] as $fav){
+		if ($fav['id'] == $id) {
+			
+			$inFav = true;
+
+		}
+	}
+
+	if($inFav)
+	{
+		 $sql = 'SELECT * FROM weatherdata WHERE city_id = '.$id.' ORDER BY t_datetime DESC';
+
+	           $i = 0;
+	           foreach ($conn->query($sql) as $row) {
+	               $stationsSQL['observations']['data'][$i]['air_temp'] = $row['temp'];
+
+	               $date = strtotime($row['t_datetime']);
+	               $date = date('YmdHi', $date);
+	               $stationsSQL['observations']['data'][$i]['local_date_time_full'] = $date;//20160421100000
+	         
+	         		//echo $date;
+
+	               $i++;
+
+	           }
+
+	}
+
+		
+		$string = file_get_contents($url);
+		$stations = json_decode($string, true);
+	
+
 
 	//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
 	//echo '<br />';
@@ -155,6 +188,59 @@
 		echo '</tr>';
 
 	}
+	//Loop through All Database data
+	if ($inFav)
+	{
+		foreach ($stationsSQL['observations']['data'] as $station) {
+			echo '<tr>';
+
+				//Split date in to readable format
+				$date = $station['local_date_time_full'];
+				$year = substr($date, 0, 4);
+				$month = substr($date, 4, 2);
+				$day = substr($date, 6, 2);
+				$hour = substr($date, 8, 2);
+				$minute = substr($date, 10, 2);
+				echo '<td>'.$day.'/'.$month.'/'.$year.'</td>';
+				echo '<td>'.$hour.':'.$minute.'</td>';
+				echo '<td>'.$station['air_temp'].'</td>';
+				echo '<td>'.$station['cloud'].'</td>';
+				echo '<td>'.$station['rain_trace'].'</td>';
+				echo '<td>'.$station['wind_dir'].'</td>';
+				echo '<td>'.$station['wind_spd_kmh'].'</td>';
+				echo '<td>'.$station['gust_kmh'].'</td>';
+				echo '<td>'.$station['press'].'</td>';
+				echo '<td>'.$station['rel_hum'].'</td>';
+			echo '</tr>';
+		}
+
+		try{
+		  
+				foreach ($stationsSQL['observations']['data'] as $reading) {
+			
+					$sql = "INSERT IGNORE INTO weatherdata (city_id, temp, t_datetime) VALUES (:city_id, :temp, :t_datetime)";
+
+				    $sth = $conn->prepare($sql);
+
+				    $sth->bindParam(':city_id', $id, PDO::PARAM_INT);
+				    $sth->bindParam(':temp', $reading['air_temp'], PDO::PARAM_STR, 12);
+				    $sth->bindParam(':t_datetime', $reading['local_date_time_full'], PDO::PARAM_STR, 12);
+				    
+
+				    $sth->execute();
+
+				    $lastId = $conn->lastInsertId();
+
+				}
+
+	   	}
+		catch(PDOException $e)
+		{
+		    echo $sql . "<br/>" . $e->getMessage();
+		}
+
+	}
+
 
 ?>
 </table>
