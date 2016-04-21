@@ -187,7 +187,6 @@
 	$firstTable = true;
 	//Loop through all the data, creating one table row for each observation
 	foreach ($stations['observations']['data'] as $station) {
-		echo '<tr>';
 
 			//Split date in to readable format
 			$date = $station['local_date_time_full'];
@@ -199,7 +198,6 @@
 			
 			
 			if($currDate != $day.$month.$year && $firstTable == false){
-				echo '</tbody>';
 				echo '</table>';
 				echo '<br>';
 				echo '<br>';
@@ -212,7 +210,6 @@
 ?>
 				<h3 class="center"><?php echo $day.'/'.$month.'/'.$year;?></h3>
 				<table border='1' style='width:100%; margin:auto;'>
-				<tbody>
 				<tr>
 					<th rowspan='2'>Date</th>
 					<th rowspan='2'>Time</th>
@@ -230,7 +227,7 @@
 				</tr>
 <?php
 			}
-			
+			echo '<tr>';
 			echo '<td>'.$day.'/'.$month.'/'.$year.'</td>';
 			echo '<td>'.$hour.':'.$minute.'</td>';
 			echo '<td>'.$station['air_temp'].'</td>';
