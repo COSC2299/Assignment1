@@ -32,7 +32,7 @@
 	else if (isset($_GET['favID'])){
 		//unset($_SESSION['favourites'][$favID]);
       //$_SESSION['favourites'] = array_values($_SESSION['favourites']);
-      $favList = array();
+      	$favList = array();
 		$favList = json_decode($_COOKIE['favourites'], true); // get current array from cookie
 
 		$_SESSION['showAttentionBar'] = true;
@@ -42,5 +42,28 @@
 		$favList = array_values($favList); // fix array indexes
 		
 		setcookie("favourites", json_encode($favList), time() + (86400 * 40), "/"); // set new cookie to array
+
+		require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
+		try{
+		        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+		                                   // set the PDO error mode to excepti
+		        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		        $sql = 'DELETE FROM weatherdata WHERE city_id = :id';//Delete individual station from DB
+
+		     
+		        $sth = $conn->prepare($sql);
+
+		        $sth->bindParam(':id', $favID, PDO::PARAM_INT);
+
+		        $sth->execute();
+
+		    }
+		     catch(PDOException $e)
+		     {
+		         echo $sql . "<br/>" . $e->getMessage();
+		     }
 	}
+
+
 ?>
