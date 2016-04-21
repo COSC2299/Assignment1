@@ -307,18 +307,23 @@
 		  
 				foreach ($stationsSQL['observations']['data'] as $reading) {
 			
-					$sql = "INSERT IGNORE INTO weatherdata (city_id, temp, t_datetime) VALUES (:city_id, :temp, :t_datetime)";
+					$sql = "INSERT IGNORE INTO weatherdata (city_id, temp, t_datetime, cloud, rain, w_dir, w_speed, w_gust, pressure, humidity) VALUES (:city_id, :temp, :t_datetime, :cloud, :rain, :w_dir, :w_speed, :w_gust, :pressure, :humidity)";
 
 				    $sth = $conn->prepare($sql);
 
 				    $sth->bindParam(':city_id', $id, PDO::PARAM_INT);
 				    $sth->bindParam(':temp', $reading['air_temp'], PDO::PARAM_STR, 12);
 				    $sth->bindParam(':t_datetime', $reading['local_date_time_full'], PDO::PARAM_STR, 12);
+				    $sth->bindParam(':cloud', $reading['cloud'], PDO::PARAM_STR, 12);
+				    $sth->bindParam(':rain', $reading['rain_trace'], PDO::PARAM_STR, 12);
+				    $sth->bindParam(':w_dir', $reading['wind_dir'], PDO::PARAM_STR, 12);
+				    $sth->bindParam(':w_speed', $reading['wind_spd_kmh'], PDO::PARAM_INT);
+				    $sth->bindParam(':w_gust', $reading['gust_kmh'], PDO::PARAM_INT);
+				    $sth->bindParam(':pressure', $reading['press'], PDO::PARAM_STR, 12);
+				    $sth->bindParam(':humidity', $reading['rel_hum'], PDO::PARAM_INT);
 				    
 
 				    $sth->execute();
-
-				    $lastId = $conn->lastInsertId();
 
 				}
 
