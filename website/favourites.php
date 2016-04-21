@@ -2,6 +2,8 @@
    session_start();
 ?>
 
+<?php require 'php_scripts/session_check.php'; ?>
+
 <!doctype html>
 
 <html>  
