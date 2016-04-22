@@ -1,1 +1,23 @@
 PEER ASSESSMENT
+
+MIGUEL PASA - s3542862
+	- Sequence Diagram
+	- Test Cases
+	- User Manual
+	- User Stories
+	
+ALEXANDER O'SHANNESSY - s3422459
+	- Favourite Stations
+	- Get URL for each station / Get data from BOM website
+	- Setup mySQL Server and fill database with data
+	- Search Functionality
+	- Store & retrieve favourites data in mySQL
+		
+	
+JANITH MUTHUHETTI GAMAGE - s3488184
+	- Favourite Stations in cookie
+	- Search Results Functionality
+	- Display Stations for each state
+	- Display table with data for each station
+	- Display charts for each station
+	- Management of windows
