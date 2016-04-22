@@ -65,8 +65,15 @@
 
 	echo '</tr>';
 	echo '</table>';
+	
+	if ($time == 0 && $numEntries >= 12){
+		$time = 12;
+	}
+	else if ($time == 0){
+		$time = $numEntries;
+	}
+	
 ?>
-
 	<br>
 	<br>
 <?php

@@ -45,7 +45,7 @@
                ?>
             <script>
             	function displayChart(){
-      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); 
+      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=0';?>', 'chartWindow', 'width=1300, height=1000'); 
       				localStorage.setItem('chartWindow', chartWindow);
       				return false;
       			}
