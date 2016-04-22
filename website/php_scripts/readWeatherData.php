@@ -2,43 +2,6 @@
 <?php
 
 	require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
-
-
-	//Fix format for selected city from GET
-	$selectedCity = str_replace("%20", " ", $selectedCity);
-	$selectedCity = str_replace("+", " ", $selectedCity);
-
-
-	//If state passed through in same var as City, separate out based on delimeter of "-"
-	$delim = strpos($selectedCity, "-");
-	if($delim > 0 && !isset($selectedState)) {
-		$selectedState = substr($selectedCity, $delim + 2);
-		$selectedCity = substr($selectedCity, 0, $delim - 1);
-	}
-
-	//If there is no id for the city, search the db using the city name
-	if(!isset($id))
-	{
-		try{
-	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-	                                   // set the PDO error mode to excepti
-	        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-	        $sql = 'SELECT id FROM city WHERE name = "'.$selectedCity.'"';
-
-	           
-	           foreach ($conn->query($sql) as $row) {
-	               $id = $row['id'];
-	           }
-	           
-
-	      }
-	      catch(PDOException $e)
-	     {
-	         echo $sql . "<br/>" . $e->getMessage();
-	     }
-
-	}
 	
 	//replace space for url
 	$stateURL = str_replace(" ", "%20", $selectedState);
@@ -341,30 +304,4 @@
 	</table>
 <?php 
 	}//end if for ID Set
-	else
-	{//Display Search Results
-		?>
-		<h2>Search for <?php echo $selectedCity; ?></h2>
-		<?php
-		try{
-	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-	                                   // set the PDO error mode to excepti
-	        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-	        $sql = 'SELECT * FROM city WHERE name LIKE "%'.$selectedCity.'%"';
-
-	           
-	           foreach ($conn->query($sql) as $row) {
-	               ?>
-	               <a href="city.php?c=<?php echo $row['name']; ?>"><?php echo $row['name']; ?></a><br/>
-	               <?php
-	           }
-	           
-
-	      }
-	      catch(PDOException $e)
-	     {
-	         echo $sql . "<br/>" . $e->getMessage();
-	     }
-	}
-	?>
+?>

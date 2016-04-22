@@ -40,7 +40,7 @@
                      $sID = $_GET['sID'];
              	?>
                <?php
-                  include 'php_scripts/readWeatherData.php'; 
+               	require 'php_scripts/search_results.php';
                ?>
             </div>
             <br/>

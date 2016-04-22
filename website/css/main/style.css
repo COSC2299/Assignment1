@@ -237,6 +237,13 @@ a:active {
 	text-align: center;
 }
 
+.search_item{
+	width: 50%;
+	float: left;
+	text-align: center;
+	position: relative;
+}
+
 /* End Side Bar */
 
 /* Footer */
