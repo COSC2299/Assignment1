@@ -10,12 +10,10 @@
 <head>
    <title>Weather Station - My Favourites</title>
    <?php require 'page_format/main/head.php';?>
-   <script type="text/javascript">
-   	function clearFav($favID) { // function to remove favourites
-   		$url = "php_scripts/clearFavourites.php?favID=" + $favID;
-   		console.log($url);
-      	$.post( $url,{}, function( data ) {  // post to clearFavourites php script
-      		console.log(data);      
+    <script type="text/javascript">
+   	function clearFav(favID) { // function to remove favourites
+      	$.post( "php_scripts/clearFavourites.php",{favID:favID}, function( data ) {  // post to clearFavourites php script
+      	    console.log(data);      
             location.reload(); // reload page after adding favourite
          });
       }
