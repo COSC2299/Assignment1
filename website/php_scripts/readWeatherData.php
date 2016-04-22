@@ -247,7 +247,7 @@
 					$currDate = $day.$month.$year;
 	?>
 					<h3 class="center"><?php echo $day.'/'.$month.'/'.$year;?></h3>
-					<table border='1' style='width:100%; margin:auto;'>
+					 <table border='3' bordercolor='#BBB' style='width:100%; margin:auto; border-collapse: collapse;'>
 					<tr>
 						<th rowspan='2'>Date</th>
 						<th rowspan='2'>Time</th>

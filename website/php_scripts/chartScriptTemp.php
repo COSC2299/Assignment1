@@ -2,6 +2,12 @@
 
     Chart.defaults.global.pointHitDetectionRadius = 1;
     
+    Chart.defaults.global.scaleFontColor = "#FFF";
+    
+    Chart.defaults.global.scaleLineColor = "#CCC";
+	
+	Chart.defaults.global.scaleGridLineColor = "#CCC";
+    
     var lineChartData = {
         labels: [<?php
         		$breakLoop = $time * 2;
