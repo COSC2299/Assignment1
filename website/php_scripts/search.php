@@ -1,7 +1,7 @@
  <script>
   $(function() {
     var availableTags = [
-      <?php include dirname(__DIR__).'/php_scripts/commaCities.php'; ?>
+      <?php include dirname(__DIR__).'/php_scripts/commaCities.php'; // get city list ?> 
     ];
     $( "#searchTags" ).autocomplete({
       source: availableTags

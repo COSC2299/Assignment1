@@ -38,7 +38,7 @@
 ?>
 				
 				<?php
-               	if (!isset($id)){
+               	if (!isset($id)){ // if id is not set, it is a search query.
                		$string = file_get_contents(dirname(__DIR__).'/php_scripts/stations.json');
 							$stations = json_decode($string, true);
 							
@@ -55,21 +55,21 @@
 
 	        					$sql = 'SELECT * FROM city WHERE name LIKE "%'.$selectedCity.'%"';
 
-	           				$stateStack = array();
+	           				$stateStack = array(); 
 	           				foreach ($conn->query($sql) as $row) {
 	           					foreach ($stations as $state) {
 										foreach ($state['stations'] as $city) {
 											$stateVal = $city['city'].' - '.$state['state'];
-											if ($city['city'] == $row['name'] && !in_array($stateVal, $stateStack)){
+											if ($city['city'] == $row['name'] && !in_array($stateVal, $stateStack)){ // if name = city, and not in array, then echo result
 												echo '<div class="search_item">';
 												echo '<p><a href="city.php?c='.$city['city'].'&s='.$state['state'].'">'.$city['city'].' - '.$state['state'].'</a></p>';
 												echo '</div>';
-												array_push($stateStack, $stateVal);
+												array_push($stateStack, $stateVal); // add to array
 											}
 										}
 									}
 								}
-								if (empty($stateStack)){
+								if (empty($stateStack)){ // if no results, (array empty), echo msg
 									echo '<p class="center">No results for "'.$selectedCity.'"</p>';
 								}
 	      				}
@@ -82,7 +82,7 @@
 							echo '<br>';
 							echo '<br>';
                	}
-               	else{
+               	else{ // else if id is set, cont.
                   	include 'php_scripts/readWeatherData.php'; 
                   }
                ?>

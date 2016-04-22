@@ -4,6 +4,7 @@
 
 <?php
 	$selectedState = $_GET['s']; // if state is not defined, default to all states
+	$sID = $_GET['id'];
 	if ($selectedState == null){
    	$selectedState = 'All Stations';
    	$sID = 0;

@@ -11,7 +11,7 @@
                                    // set the PDO error mode to excepti
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		  
-		  if ($sID == 0){
+		  if ($sID == 0){ // if sID = 0, echo all stations, grouped by state
 		  
 		  		$state_name = array("Antarctica", "Canberra", "New South Wales", "Northern Territory", "Queensland",
 		  		"South Australia", "Tasmania", "Victoria", "Western Australia");
