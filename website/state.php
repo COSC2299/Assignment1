@@ -3,7 +3,7 @@
 
 
 <?php
-	$selectedState = $_GET['s'];
+	$selectedState = $_GET['s']; // if state is not defined, default to all states
 	if ($selectedState == null){
    	$selectedState = 'All Stations';
    	$sID = 0;
@@ -28,19 +28,10 @@
          <div id="main_content">
             <div id="main_content_text">
                <?php 
-                     $selectedState = $_GET['s'];
-                     $sID = $_GET['id'];
-                     if ($selectedState == null){
-                     	$selectedState = 'All Stations';
-                     	$sID = 0;
-                     }
-                     //echo $state;
-                     //dirname(__DIR__).'/
-                     //include 'php_scripts/listCitiesForState.php';
                      echo '<br>';
                      echo '<p class="title_large">Browse Stations - ' . $selectedState . '</p>';
                      echo '<br>';
-                     include 'php_scripts/sqlCitiesForState.php'; 
+                     include 'php_scripts/sqlCitiesForState.php'; // echo stations in state
 
                   ?>
             </div>

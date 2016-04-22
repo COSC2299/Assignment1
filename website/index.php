@@ -1,5 +1,5 @@
-<?php require 'php_scripts/session_check_cookies.php'; ?>
-<?php require 'php_scripts/session_check.php'; ?>
+<?php require 'php_scripts/session_check_cookies.php'; //check if new session. ?>
+<?php require 'php_scripts/session_check.php'; // if so reopen last session windows ?>
 
 
 <!doctype html>
@@ -8,7 +8,7 @@
 <head>
    <title>Weather Station</title>
    <?php require 'page_format/main/head.php';?>
-   <?php require 'php_scripts/session_check_chart.php';?>
+   <?php require 'php_scripts/session_check_chart.php'; //script for reopening charts ?> 
 </head>
    
    <body>
@@ -44,13 +44,13 @@
 								echo '</tr>';
                   	}
                   	
-                  	for ($i=0; $i < count($favs); $i++) { 
+                  	for ($i=0; $i < count($favs); $i++) {  // echo favourites from cookie
                   		echo '<tr>';
                      	echo '<td><a href="city.php?c='.$favs[$i]['city'].'&s='.$favs[$i]['state'].'&id='.$favs[$i]['id'].'">'.$favs[$i]['city'].'</a></td>';
                      	echo '<td><a href="state.php?&s='.$favs[$i]['state'].'&id='.$favs[$i]['sID'].'">'.$favs[$i]['state'].'</a></td>';
                      	echo '</tr>';
                   	}
-                  	if (count($favs) == 0){
+                  	if (count($favs) == 0){ // if no favourites, echo message
                   		echo '<p>You currently do not have any favourites</p>';
                   	}
                   	else{
@@ -61,9 +61,8 @@
             <br>
             <br>
             <p class="title_medium">Browse States</p>
-            <?php //include 'php_scripts/search.php'; ?>
-               <?php //include 'php_scripts/listStates.php'; 
-                     include 'php_scripts/sqlStates.php'; 
+               <?php  
+                     include 'php_scripts/sqlStates.php'; // echo all states
                ?>
             </div>
             <br/>

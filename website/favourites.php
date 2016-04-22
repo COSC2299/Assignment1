@@ -17,11 +17,6 @@
          });
       }
    </script>
-   <script type="text/javascript">
-   	function clearFavourites($favID){
-   		console.log($favID);
-   	}
-   </script>
 </head>
    
    <body>

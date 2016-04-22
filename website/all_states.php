@@ -24,9 +24,8 @@
             <p class="title_large">Browse States</p>
             <br/>
             <br/>
-            <?php //include 'php_scripts/search.php'; ?>
-               <?php //include 'php_scripts/listStates.php'; 
-                     include 'php_scripts/sqlStates.php'; 
+               <?php
+                     include 'php_scripts/sqlStates.php'; // echo all states list
                ?>
             </div>
             <br/>
