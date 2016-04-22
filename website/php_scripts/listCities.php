@@ -1,9 +1,7 @@
 <a href="listStates.php">States</a><br/>
 <?php
-	$string = file_get_contents('stations.json');
+	$string = file_get_contents('stations.json'); // get stations from json file
 	$stations = json_decode($string, true);
-
-	//print_r($stations);
 
 	foreach ($stations as $state) {
 		# code...

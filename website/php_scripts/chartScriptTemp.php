@@ -1,5 +1,6 @@
 <script>
-
+	<!-- CHART.JS -->
+	
     Chart.defaults.global.pointHitDetectionRadius = 1;
     
     Chart.defaults.global.scaleFontColor = "#FFF";
@@ -41,7 +42,7 @@
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: [<?php
             	foreach ($stations['observations']['data'] as $station) {
-            		switch ($type){
+            		switch ($type){ // depending on chart type, echo values to chart script
             			case 'Rain Fall Since 9am':
             				echo str_replace("-", "0", $station['rain_trace']).',';
             				break;
@@ -58,7 +59,7 @@
             				echo str_replace("-", "0", $station['rel_hum']).',';
             				break;
             			default: 
-            				echo $station['air_temp'].',';
+            				echo $station['air_temp'].','; // default to temp
             				break;
             		}
             	}

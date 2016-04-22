@@ -36,9 +36,10 @@
 	$string = file_get_contents($url);
 	$stations = json_decode($string, true);
 	
-	$numEntries = count($stations['observations']['data']) - 1;
-	$halfNumEntries = ($numEntries - $numEntries%2)/2;
+	$numEntries = count($stations['observations']['data']) - 1; // calulate num entries
+	$halfNumEntries = ($numEntries - $numEntries%2)/2; // calculate half num entries
 	
+	// echo links for chart length
 	echo '<br>';
 	echo "<table style='width:100%; margin:auto;'>";
 	echo '<tr>';
@@ -78,12 +79,12 @@
 	<br>
 <?php
 	echo '<br>';
-   echo '<p class="title_small">'.$type.' - Past '.$time.' Entries</p>';
+   echo '<p class="title_small">'.$type.' - Past '.$time.' Entries</p>'; // echo info about rain
 	if ($type == 'Rain Fall Since 9am'){
    	echo '<p class="center">Please note rain data resets at 9:00am</p>';
       echo '<br>';
    }
-   if ($type == 'Wind Speed' || $type == 'Gust Speed'){
+   if ($type == 'Wind Speed' || $type == 'Gust Speed'){ // echo links for wind/gust
       echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Wind%20Speed&time='.$time.'">Wind Speed</a></p>';
     	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&type=Gust%20Speed&time='.$time.'">Gust Speed</a></p>';
    }

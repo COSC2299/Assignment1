@@ -131,7 +131,7 @@
 		$nineAmTemp = 1000;
 		$threePmTemp = 1000;
 		
-		foreach ($stations['observations']['data'] as $station) {
+		foreach ($stations['observations']['data'] as $station) { // format data from bom website
 			$date = $station['local_date_time_full'];
 			$year = substr($date, 0, 4);
 			$month = substr($date, 4, 2);
@@ -143,27 +143,27 @@
 				$currDate = $day . $month . $year;
 			}
 			
-			if ($currDate == $day.$month.$year){
+			if ($currDate == $day.$month.$year){ // calculate min temp
 				if ($station['air_temp'] < $minTemp){
 					$minTemp = $station['air_temp'];
 					$minHour = $hour;
 					$minMinute = $minute;
 				}
-				if ($station['air_temp'] > $maxTemp){
+				if ($station['air_temp'] > $maxTemp){ // calculate max temp
 					$maxTemp = $station['air_temp'];
 					$maxHour = $hour;
 					$maxMinute = $minute;
 				}
-				if ($hour == '09'){
-					$nineAmTemp = $station['air_temp'];
+				if ($hour == '09'){ // get nine am temp
+					$nineAmTemp = $station['air_temp']; 
 				}
-				if ($hour == '15'){
+				if ($hour == '15'){ // get three pm temp
 					$threePmTemp = $station['air_temp'];
 				}
 			}
 			//echo $hour;
 		}
-		
+		// display min max 9am 3pm data
 		echo '<p class="center">Maximum temperature '.$maxTemp.'&deg;C, today at '.$maxHour.':'.$maxMinute.'</p>';
 		echo '<p class="center">Minimum temperature '.$minTemp.'&deg;C, today at '.$minHour.':'.$minMinute.'</p>';
 		echo '<br>';
@@ -208,6 +208,7 @@
 				
 				if($currDate != $day.$month.$year){
 					$currDate = $day.$month.$year;
+					// split table into days
 	?>
 					<h3 class="center"><?php echo $day.'/'.$month.'/'.$year;?></h3>
 					 <table border='3' bordercolor='#BBB' style='width:100%; margin:auto; border-collapse: collapse;'>

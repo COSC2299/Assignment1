@@ -1,6 +1,6 @@
 <?php include 'search.php'; ?>
 <?php
-	$string = file_get_contents(dirname(__DIR__).'/php_scripts/stations.json');
+	$string = file_get_contents(dirname(__DIR__).'/php_scripts/stations.json');  // get stations from json file
 	$stations = json_decode($string, true);
 
 	//print_r($stations);
