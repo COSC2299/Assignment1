@@ -1,1 +1,12 @@
 READ ME
+
+To view the website, visit:
+http://webdev.muthuhetti.com/sept/
+
+To run on your own server:
+1. Copy all files into web server directory.
+2. Setup mySQL database.
+3. Run sql script ‘/website/sql_scripts/sept.sql’
+4. Run sql script ‘/website/sql_scripts/createWeatherDataTable.sql’
+5. Run sql script ‘/website/sql_scripts/createWeatherDataTableUPDATE.sql’
+6. Change mySQL security settings in ‘/website/php_scripts/sqlSecurity.php’

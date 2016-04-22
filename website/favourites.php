@@ -35,7 +35,7 @@
                   	$favs = json_decode($_COOKIE['favourites'], true); // get array from cookie
                   	
                   	if (count($favs) != 0){
-                  	   echo '<table border="1" style="width:90%; margin:auto;">';
+                  	   echo '<table border="3" bordercolor="#BBB" style="width:90%; margin:auto; border-collapse: collapse;">';
                   		echo '<tr>';
 								echo '<th>Station</th>';
 								echo '<th>State</th>';
