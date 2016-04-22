@@ -69,6 +69,9 @@
 										}
 									}
 								}
+								if (empty($stateStack)){
+									echo '<p class="center">No results for "'.$selectedCity.'"</p>';
+								}
 	      				}
 	      				catch(PDOException $e)
 	     					{

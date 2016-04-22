@@ -8,6 +8,7 @@
 <head>
    <title>Weather Station - <?php echo $_GET['c'];?></title>
    <?php require 'page_format/main/head.php';?>
+   <?php require 'php_scripts/session_check_chart.php';?>
    <script type="text/javascript">
    	function fav(city, state, id) {
          $.post( "php_scripts/favourite.php",{city:city, state:state, id:id}, function( data ) {
@@ -42,6 +43,13 @@
                <?php
                	require 'php_scripts/search_results.php';
                ?>
+            <script>
+            	function displayChart(){
+      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); 
+      				localStorage.setItem('chartWindow', chartWindow);
+      				return false;
+      			}
+            </script>
             </div>
             <br/>
             <br/>

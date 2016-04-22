@@ -8,6 +8,7 @@
 <head>
    <title>Weather Station - All States</title>
    <?php require 'page_format/main/head.php';?>
+   <?php require 'php_scripts/session_check_chart.php';?>
 </head>
    
    <body>

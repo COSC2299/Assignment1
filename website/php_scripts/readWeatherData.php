@@ -47,7 +47,7 @@
 	
 	echo '<br>';
 ?>
-	<p><a href="#" onclick="window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=12';?>', 'chartWindow', 'width=1300, height=1000'); return false;">Display Charts</a></p>
+	<p><a href="#" onclick="displayChart()">Display Charts</a></p>
 <?php
 	if(isset($id))
 	{

@@ -1,4 +1,11 @@
 <?php
+	$chartOpen = true;
+	$chartURL = $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+	setcookie("chartURL", $chartURL, time() + (86400 * 30), "/"); // store chartURL in cookie
+	setcookie("chartOpen", true, time() + (86400 * 30), "/"); // store array in cookie
+?>
+
+<?php
    session_start();
 ?>
 

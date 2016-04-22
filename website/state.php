@@ -15,6 +15,7 @@
 <head>
    <title>Weather Station - <?php echo $selectedState;?></title>
    <?php require 'page_format/main/head.php';?>
+   <?php require 'php_scripts/session_check_chart.php';?>
 </head>
    
    <body>

@@ -8,6 +8,7 @@
 <head>
    <title>Weather Station - My Favourites</title>
    <?php require 'page_format/main/head.php';?>
+   <?php require 'php_scripts/session_check_chart.php';?>
     <script type="text/javascript">
    	function clearFav(favID) { // function to remove favourites
       	$.post( "php_scripts/clearFavourites.php",{favID:favID}, function( data ) {  // post to clearFavourites php script
