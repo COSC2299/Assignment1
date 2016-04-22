@@ -1,8 +1,6 @@
-<?php
-   session_start();
-?>
-
+<?php require 'php_scripts/session_check_cookies.php'; ?>
 <?php require 'php_scripts/session_check.php'; ?>
+
 
 <?php
 	$selectedState = $_GET['s'];
