@@ -1,7 +1,8 @@
-READ ME
+HOW TO
 
 To view the website, visit:
 http://webdev.muthuhetti.com/sept/
+
 
 To run on your own server:
 1. Copy all files into web server directory.
