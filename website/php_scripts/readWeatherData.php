@@ -104,8 +104,8 @@
 			$stations = json_decode($string, true);
 		
 
-		$string = file_get_contents($url);
-		$stations = json_decode($string, true);
+		//$string = file_get_contents($url);
+		//$stations = json_decode($string, true);
 
 		//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
 		//echo '<br />';
@@ -119,6 +119,14 @@
 			echo '<p class="title_small">'.$header['product_name'].'</p>';
 			echo '<p class="center">'.$header['refresh_message'].'</p>';
 		}
+		// ********************************************************************************************************
+		foreach ($stations['observations']['data'] as $station) {
+			$latitude = $station['lat'];
+			$longitude = $station['lon'];
+		}
+		echo '<p class="center">'.$latitude.', '.$longitude.'</p>';
+		$forecast_url = 'https://api.forecast.io/forecast/1f05fbee8b8ba738d4f50f6cc418cdcf/'.$latitude.','.$longitude;
+		echo '<p class="center">'.$forecast_url.'</p>';
 	?>
 
 	<br>
@@ -180,10 +188,32 @@
 			echo '<p class="center">3pm temperature: '.$threePmTemp.'&deg;C</p>';
 		}
 	?>
+	
+	<br>
+	
+	<?php
+		// forecast.io
+		$forecast_string = file_get_contents($forecast_url);
+		$forecast = json_decode($forecast_string, true);
+		echo '<p class="title_small">Forecast</p>';
+		echo $forecast['currently']['time'];
+		echo $forecast['currently']['summary'];
+		echo $forecast['currently']['icon'];
+		echo $forecast['currently']['precipProbability'];
+		echo $forecast['currently']['precipType'];
+		echo $forecast['currently']['temperature'];
+		echo $forecast['currently']['humidity'];
+		echo $forecast['currently']['windSpeed'];
+		echo $forecast['currently']['windBearing'];
+		echo $forecast['currently']['cloudCover'];
+		echo $forecast['currently']['pressure'];
+		//print_r($forecast);
+	?>
 
 	<br>
 
 	<?php
+		echo '<p class="title_small">Historical Data</p>';
 		$currDate = 0;
 		$firstTable = true;
 		//Loop through all the data, creating one table row for each observation
