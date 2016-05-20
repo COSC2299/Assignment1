@@ -230,16 +230,17 @@
 		echo '<p>Pressure: '.$forecast_pressure.'mBar</p>';
 		echo '<p>Time: '.$forecast_time.'</p>';
 		echo '</div>';
-		//print_r($forecast['hourly']['data']);
+		//print_r($forecast['hourly']);
 		//print_r($stations['observations']['data']);
-		$epoch = 14637312120;
-		echo date('i', $epoch); // output as RFC 2822 date - returns local time
-		echo gmdate('i', $epoch); // returns GMT/UTC time
 	?>
 	
 	<br>
+	<br>
 	
 	<?php
+		echo '<p class="title_small">Hourly Forecasts</h3>';
+		echo '<p class="center">'.$forecast['hourly']['summary'].'</p>';
+		
 		$currDate = 0;
 		$firstTable = true;
 		foreach ($forecast['hourly']['data'] as $hourlyForecast){
