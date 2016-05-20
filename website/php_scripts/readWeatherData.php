@@ -115,18 +115,131 @@
 	<br>
 
 	<?php
-		foreach ($stations['observations']['header'] as $header) {
-			echo '<p class="title_small">'.$header['product_name'].'</p>';
-			echo '<p class="center">'.$header['refresh_message'].'</p>';
-		}
 		// ********************************************************************************************************
 		foreach ($stations['observations']['data'] as $station) {
 			$latitude = $station['lat'];
 			$longitude = $station['lon'];
 		}
-		echo '<p class="center">'.$latitude.', '.$longitude.'</p>';
 		$forecast_url = 'https://api.forecast.io/forecast/1f05fbee8b8ba738d4f50f6cc418cdcf/'.$latitude.','.$longitude;
-		echo '<p class="center">'.$forecast_url.'</p>';
+	
+		// forecast.io
+		$forecast_string = file_get_contents($forecast_url);
+		$forecast = json_decode($forecast_string, true);
+		
+		// forecast.io temperature
+		$forecast_temp_raw = ($forecast['currently']['temperature'] - 32) * 5/9;
+		$forecast_temp = number_format($forecast_temp_raw, 2, '.', '');
+		//echo $forecast_temp;
+		
+		// forecast.io time
+		$forecast_time_epoch = $forecast['currently']['time'];
+		$dt = new DateTime("@$forecast_time_epoch");
+		$forecast_time =  $dt->format('d M Y H:i:s');
+		
+		// forecast.io icon
+		/* FROM FORECAST.IO -> https://developer.forecast.io/docs/v2
+		 * icon: A machine-readable text summary of this data point, suitable for selecting 
+		 * an icon for display. If defined, this property will have one of the following 
+		 * values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, 
+		 * partly-cloudy-day, or partly-cloudy-night. (Developers should ensure that a 
+		 * sensible default is defined, as additional values, such as hail, thunderstorm, 
+		 * or tornado, may be defined in the future.)
+		 */
+		
+		$forecast_icon_raw = $forecast['currently']['icon'];
+		
+		switch ($forecast_icon_raw){
+			case "clear-day":
+				$forecast_icon = "01d.png";
+				break;
+			case "clear-night":
+				$forecast_icon = "01n.png";
+				break;
+			case "rain":
+				$forecast_icon = "05d.png";
+				break;
+			case "snow":
+				$forecast_icon = "13d.png";
+				break;
+			case "sleet":
+				$forecast_icon = "13d.png";
+				break;
+			case "wind":
+				$forecast_icon = "50d.png";
+				break;
+			case "fog":
+				$forecast_icon = "50d.png";
+				break;
+			case "cloudy":
+				$forecast_icon = "03d.png";
+				break;
+			case "partly-cloudy-day":
+				$forecast_icon = "02d.png";
+				break;
+			case "partly-cloudy-night":
+				$forecast_icon = "02n.png";
+				break;
+			case "thunderstorm":
+				$forecast_icon = "11d.png";
+				break;
+			default:
+				$forecast_icon = "01d.png";
+				break;
+		}
+		//echo '<img src="media/images/weatherIcon/'.$forecast_icon.'" alt="'.$forecast_icon_raw.'">';
+		
+		// forecast.io precipitaion probability
+		$forecast_precipProb = $forecast['currently']['precipProbability'] * 100;
+		//echo $forecast_precipProb;
+		
+		// forecast.io humidity
+		$forecast_humidity = $forecast['currently']['humidity'] * 100;
+		//echo $forecast_humidity;
+		
+		$forecast_summary = $forecast['currently']['summary'];
+		$forecast_windSpeed = $forecast['currently']['windSpeed'];
+		$forecast_windBearing = $forecast['currently']['windBearing'];
+		$forecast_cloudCover = $forecast['currently']['cloudCover'] * 100;
+		$forecast_pressure = $forecast['currently']['pressure'];
+		
+		echo '<p class="title_small">Current Condition</p>';
+		/*
+		echo $forecast['currently']['time'];
+		echo $forecast['currently']['summary'];
+		echo $forecast['currently']['icon'];
+		echo $forecast['currently']['precipProbability'];
+		echo $forecast['currently']['temperature'];
+		echo $forecast['currently']['humidity'];
+		echo $forecast['currently']['windSpeed'];
+		echo $forecast['currently']['windBearing'];
+		echo $forecast['currently']['cloudCover'];
+		echo $forecast['currently']['pressure'];
+		*/
+		echo '<div>';
+		echo '<img src="media/images/weatherIcon/'.$forecast_icon.'" alt="'.$forecast_icon_raw.'">';
+		echo '<p>'.$forecast_summary.'</p>';
+		echo '</div>';
+		echo '<div>';
+		echo '<p> Temperature: '.$forecast_temp.'&deg;C</p>';
+		echo '<p>Precipitation Probability: '.$forecast_precipProb.'%</p>';
+		echo '<p>Humidity: '.$forecast_humidity.'%</p>';
+		echo '<p>Wind Speed: '.$forecast_windSpeed.'mph</p>';
+		echo '<p>Wind Bearing: '.$forecast_windBearing.'&deg;</p>';
+		echo '<p>Cloud Cover: '.$forecast_cloudCover.'%</p>';
+		echo '<p>Pressure: '.$forecast_pressure.'mBar</p>';
+		echo '</div>';
+		//print_r($forecast);
+	?>
+
+	<br>
+
+	<?php
+		echo '<p class="title_small">Historical Data</p>';
+		
+		foreach ($stations['observations']['header'] as $header) {
+			echo '<p class="title_small">'.$header['product_name'].'</p>';
+			echo '<p class="center">'.$header['refresh_message'].'</p>';
+		}
 	?>
 
 	<br>
@@ -190,30 +303,9 @@
 	?>
 	
 	<br>
-	
-	<?php
-		// forecast.io
-		$forecast_string = file_get_contents($forecast_url);
-		$forecast = json_decode($forecast_string, true);
-		echo '<p class="title_small">Forecast</p>';
-		echo $forecast['currently']['time'];
-		echo $forecast['currently']['summary'];
-		echo $forecast['currently']['icon'];
-		echo $forecast['currently']['precipProbability'];
-		echo $forecast['currently']['precipType'];
-		echo $forecast['currently']['temperature'];
-		echo $forecast['currently']['humidity'];
-		echo $forecast['currently']['windSpeed'];
-		echo $forecast['currently']['windBearing'];
-		echo $forecast['currently']['cloudCover'];
-		echo $forecast['currently']['pressure'];
-		//print_r($forecast);
-	?>
-
-	<br>
 
 	<?php
-		echo '<p class="title_small">Historical Data</p>';
+		
 		$currDate = 0;
 		$firstTable = true;
 		//Loop through all the data, creating one table row for each observation
