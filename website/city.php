@@ -39,6 +39,7 @@
                      $selectedCity = $_GET['c'];
                      $id = $_GET['id'];
                      $sID = $_GET['sID'];
+                     $type = $_GET['type'];
              	?>
                <?php
                	require 'php_scripts/search_results.php';
