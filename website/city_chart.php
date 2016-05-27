@@ -40,11 +40,26 @@
       <?php require 'page_format/main/header.php';?>
       <div id="navigation_bar">
       	<ul id="navigation_menu">
+      	<?php
+      		if ($type == 'forecast') {
+      	?>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature&time='.$time.'&type='.$type;?>">Temperature</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Precipitation%20Probability&time='.$time.'&type='.$type;?>">Precipitation</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Wind%20Speed&time='.$time.'&type='.$type;?>">Wind</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Humidity&time='.$time.'&type='.$type;?>">Humidity</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Cloud%20Cover&time='.$time.'&type='.$type;?>">Cloud Cover</a></li>
+         <?php
+         	}
+         	else {
+         ?>
          	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature&time='.$time.'&type='.$type;?>">Temperature</a></li>
          	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Rain%20Fall%20Since%209am&time='.$time.'&type='.$type;?>">Rain</a></li>
          	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Wind%20Speed&time='.$time.'&type='.$type;?>">Wind</a></li>
          	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Pressure&time='.$time.'&type='.$type;?>">Pressure</a></li>
          	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Relative%20Humidity&time='.$time.'&type='.$type;?>">Humidity</a></li>
+         <?php
+         	}
+         ?>
       	</ul>
    	</div>
    	<div id="navigation_bar_spacing"></div>
@@ -58,7 +73,7 @@
 						echo '<p class="title_medium">' . $selectedState . '</p>';
 
                	if ($type == 'forecast'){
-               	
+               		include 'php_scripts/readWeatherDataChartForecast.php';
                	}
                	else {
                		include 'php_scripts/readWeatherDataChartHistorical.php';

@@ -75,22 +75,6 @@
 	echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$numEntries.'">Show Past '.$numEntries.' Entries</a></td>';
 
 	echo '</tr>';
-	?>
-
-	<tr>
-		<td colspan="2">
-			<?php if($time > 6){ ?>
-				<a href="city_chart.php?c=<?php echo $selectedCity; ?>&s=<?php echo $selectedState; ?>&id=<?php echo $id;?>&sID=<?php echo $sID; ?>&data=<?php echo $data; ?>&time=<?php echo (Intval($time) - 6); ?>">Zoom In</a>
-			<?php } ?>
-		</td>
-		<td colspan="2">
-			<?php if($time < $numEntries) { ?>
-				<a href="city_chart.php?c=<?php echo $selectedCity; ?>&s=<?php echo $selectedState; ?>&id=<?php echo $id;?>&sID=<?php echo $sID; ?>&data=<?php echo $data; ?>&time=<?php echo (Intval($time) + 6); ?>">Zoom Out</a>
-			<?php } ?>
-		</td>
-	</tr>
-
-	<?php
 	echo '</table>';
 	
 	if ($time == 0 && $numEntries >= 12){
@@ -114,4 +98,4 @@
       echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Wind%20Speed&time='.$time.'">Wind Speed</a></p>';
     	echo '<p><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Gust%20Speed&time='.$time.'">Gust Speed</a></p>';
    }
-
+?>
