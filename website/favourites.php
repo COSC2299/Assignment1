@@ -1,6 +1,8 @@
 <?php require 'php_scripts/session_check_cookies.php'; ?>
 <?php require 'php_scripts/session_check.php'; ?>
-
+<?php require_once 'php_scripts/KLogger.php'; 
+      $log = new KLogger ( "log/log.txt" , KLogger::DEBUG );
+?>
 
 <!doctype html>
 
@@ -12,7 +14,8 @@
     <script type="text/javascript">
    	function clearFav(favID) { // function to remove favourites
       	$.post( "php_scripts/clearFavourites.php",{favID:favID}, function( data ) {  // post to clearFavourites php script
-      	    console.log(data);      
+      	    console.log(data);  
+             $log->logInfo('Removed favourite: '.favID);    
             location.reload(); // reload page after adding favourite
          });
       }

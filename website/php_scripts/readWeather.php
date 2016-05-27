@@ -1,5 +1,7 @@
 <?php
 
+
+
   require 'php_scripts/sqlSecurity.php';
 
   try{
@@ -8,6 +10,7 @@
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $sql = 'SELECT name, id FROM weatherdata ORDER BY name';
+        $log->logInfo('SQL QUERY - '.$sql);
 
            echo '<ul class="mainList">';
            foreach ($conn->query($sql) as $row) {

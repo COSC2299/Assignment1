@@ -1,0 +1,24 @@
+2016-05-27 9:51:49 - INFO  --> Showing results for City: Cape Otway-2150, State: Victoria- 
+2016-05-27 9:53:00 - INFO  --> Showing results for City: St Lawrence, State: Queensland ID: 1982 
+2016-05-27 9:54:29 - INFO  --> Showing results for City: Batemans Bay, State: New South Wales ID: 1634 
+2016-05-27 10:22:32 - INFO  --> Showing results for City: , State:  ID:  
+2016-05-27 10:23:16 - INFO  --> Showing results for City: , State:  ID:  
+2016-05-27 10:23:43 - INFO  --> Showing results for City: , State:  ID:  
+2016-05-27 10:23:43 - ERROR --> No city selected 
+2016-05-27 10:24:38 - INFO  --> Showing results for City: Casey Law Dome, State: Antarctica ID:  
+2016-05-27 10:24:38 - ERROR --> No city selected 
+2016-05-27 10:25:19 - INFO  --> Showing results for City: Casey Law Dome, State: Antarctica ID:  
+2016-05-27 10:25:19 - ERROR --> No city selected 
+2016-05-27 10:25:34 - INFO  --> Showing results for City: Casey Law Dome, State: Antarctica ID:  
+2016-05-27 10:25:34 - ERROR --> No city selected 
+2016-05-27 10:26:07 - INFO  --> Showing results for City: Casey Law Dome, State: Antarctica ID:  
+2016-05-27 10:26:07 - ERROR --> No city selected 
+2016-05-27 10:26:07 - INFO  --> SQL QUERY - SELECT url FROM city WHERE id = 1594 
+2016-05-27 10:26:58 - INFO  --> Showing results for City: Casey Law Dome, State: Antarctica ID:  
+2016-05-27 10:26:58 - ERROR --> No city selected 
+2016-05-27 10:26:58 - INFO  --> SQL QUERY - SELECT url FROM city WHERE id = 1594 
+2016-05-27 10:26:58 - INFO  --> RESULT COUNT - 1 
+2016-05-27 10:27:32 - INFO  --> Showing results for City: Casey Law Dome, State: Antarctica ID:  
+2016-05-27 10:27:32 - ERROR --> No city selected 
+2016-05-27 10:27:32 - INFO  --> SQL QUERY - SELECT url FROM city WHERE id = 1594 
+2016-05-27 10:27:32 - INFO  --> RESULT COUNT - 1 

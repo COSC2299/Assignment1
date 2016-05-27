@@ -2,6 +2,10 @@
 <?php require 'php_scripts/session_check.php'; ?>
 
 
+<?php require_once 'php_scripts/KLogger.php'; 
+      $log = new KLogger ( "log/log.txt" , KLogger::DEBUG );
+?>
+
 <!doctype html>
 
 <html>  
@@ -39,6 +43,12 @@
                      $selectedCity = $_GET['c'];
                      $id = $_GET['id'];
                      $sID = $_GET['sID'];
+
+                     $log->logInfo('Showing results for City: '.$selectedCity.', State: '.$selectedState.' ID: '.$id);
+                     /*if($id<=0 || isset($_GET['id']) == false)
+                     {
+                        $log->logError('No city selected');
+                     }*/
              	?>
                <?php
                	require 'php_scripts/search_results.php';

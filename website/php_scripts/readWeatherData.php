@@ -1,6 +1,27 @@
 <?php //include 'search.php'; ?>
 <?php
+/* 
+	include '/apachelog/Logger.php';
 
+	Logger::configure('/apachelog/config.xml');
+	
+	$log = Logger::getLogger("myLogger"); 
+
+	// Start logging
+	$log->trace("My first message.");   // Not logged because TRACE < WARN
+	$log->debug("My second message.");  // Not logged because DEBUG < WARN
+	$log->info("My third message.");    // Not logged because INFO < WARN
+	$log->warn("My fourth message.");   // Logged because WARN >= WARN
+	$log->error("My fifth message.");   // Logged because ERROR >= WARN
+	$log->fatal("My sixth message.");   // Logged because FATAL >= WARN 
+	*/
+?>
+
+
+<?php
+
+
+	
 	require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
 	
 	//replace space for url
@@ -57,10 +78,13 @@
 		        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		        $sql = 'SELECT url FROM city WHERE id = '.$id;
-	 
+	 			$log->logInfo('SQL QUERY - '.$sql);
+	 			$results = 0;
 		           foreach ($conn->query($sql) as $row) {
 		               $url = $row['url'];
+		               $results++;
 		           }
+		        $log->logInfo('RESULT COUNT - '.$results);
 		      }
 		   	
 		   	catch(PDOException $e)
@@ -82,6 +106,7 @@
 		if($inFav)
 		{
 			 $sql = 'SELECT * FROM weatherdata WHERE city_id = '.$id.' ORDER BY t_datetime DESC';
+			 $log->logInfo('SQL QUERY - '.$sql);
 
 		           $i = 0;
 		           foreach ($conn->query($sql) as $row) {
@@ -96,6 +121,7 @@
 		               $i++;
 
 		           }
+		           $log->logInfo('RESULT COUNT - '.$i);
 
 		}
 
