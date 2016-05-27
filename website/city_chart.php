@@ -18,6 +18,11 @@
    $time = $_GET['time'];
 ?>
 
+<?php 
+      require_once 'php_scripts/KLogger.php'; 
+      $log = new KLogger ( "log/log.txt" , KLogger::DEBUG );
+?>
+
 <!doctype html>
 
 <html>  

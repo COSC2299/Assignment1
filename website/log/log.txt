@@ -22,3 +22,12 @@
 2016-05-27 10:27:32 - ERROR --> No city selected 
 2016-05-27 10:27:32 - INFO  --> SQL QUERY - SELECT url FROM city WHERE id = 1594 
 2016-05-27 10:27:32 - INFO  --> RESULT COUNT - 1 
+2016-05-27 17:57:36 - INFO  --> Showing results for City: Cooma Airport, State: Canberra ID: 1612 
+2016-05-27 17:57:36 - INFO  --> SQL QUERY - SELECT url FROM city WHERE id = 1612 
+2016-05-27 17:57:36 - INFO  --> RESULT COUNT - 1 
+2016-05-27 18:13:14 - INFO  --> Showing results for City: Cooma Airport, State: Canberra ID: 1612 
+2016-05-27 18:13:14 - INFO  --> SQL QUERY - SELECT url FROM city WHERE id = 1612 
+2016-05-27 18:13:14 - INFO  --> RESULT COUNT - 1 
+2016-05-27 18:13:21 - INFO  --> Showing results for City: Melbourne Olympic Park, State: Victoria ID: 2191 
+2016-05-27 18:13:21 - INFO  --> SQL QUERY - SELECT url FROM city WHERE id = 2191 
+2016-05-27 18:13:21 - INFO  --> RESULT COUNT - 1 
