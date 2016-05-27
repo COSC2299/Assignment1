@@ -43,6 +43,7 @@
                      $selectedCity = $_GET['c'];
                      $id = $_GET['id'];
                      $sID = $_GET['sID'];
+                     $type = $_GET['type'];
 
                      $log->logInfo('Showing results for City: '.$selectedCity.', State: '.$selectedState.' ID: '.$id);
                      /*if($id<=0 || isset($_GET['id']) == false)
@@ -54,8 +55,13 @@
                	require 'php_scripts/search_results.php';
                ?>
             <script>
-            	function displayChart(){
-      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&type=Temperature&time=0';?>', 'chartWindow', 'width=1300, height=1000'); 
+            	function displayChartHistorical(){
+      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&data=Temperature&time=0&type=historical';?>', 'chartWindow', 'width=1300, height=1000'); 
+      				localStorage.setItem('chartWindow', chartWindow);
+      				return false;
+      			}
+      			function displayChartForecast(){
+      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&data=Temperature&time=0&type=forecast';?>', 'chartWindow', 'width=1300, height=1000'); 
       				localStorage.setItem('chartWindow', chartWindow);
       				return false;
       			}
