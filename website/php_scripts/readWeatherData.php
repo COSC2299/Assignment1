@@ -64,21 +64,21 @@
 
 <?php
    echo '<p><a href="all_states.php">Return to States</a></p>';
-	echo '<p><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to stations in '.$selectedState.'</a></p>';
+	echo '<p><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to Stations in '.$selectedState.'</a></p>';
 	
 	echo '<br>';
 	
 	if ($type == 'forecast'){
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=historical';
 		echo '<p><a href="' . $newURL . '">View Historical Data</a></p>';
+		echo '<p><a href="#" onclick="displayChartForecast()">Display Charts for Forecast Data</a></p>';
 	}
 	else{
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=forecast';
 		echo '<p><a href="' . $newURL . '">View Forecast</a></p>';
+		echo '<p><a href="#" onclick="displayChartHistorical()">Display Charts for Historical Data</a></p>';
 	}
-?>
-	<p><a href="#" onclick="displayChart()">Display Charts</a></p>
-<?php
+	
 	if(isset($id))
 	{
 		try{
