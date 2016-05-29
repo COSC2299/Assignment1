@@ -14,8 +14,8 @@
     <script type="text/javascript">
    	function clearFav(favID) { // function to remove favourites
       	$.post( "php_scripts/clearFavourites.php",{favID:favID}, function( data ) {  // post to clearFavourites php script
-      	    console.log(data);  
-             $log->logInfo('Removed favourite: '.favID);    
+      		console.log(data);  
+            <?php $log->logInfo('Removed favourite: '.favID); ?>
             location.reload(); // reload page after adding favourite
          });
       }
