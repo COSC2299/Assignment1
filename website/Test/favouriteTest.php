@@ -1,5 +1,5 @@
 <?php
-	class addFavouriteTest extends PHPUnit_Framework_TestCase
+	class favouriteTest extends PHPUnit_Framework_TestCase
 	{
 
 	  public function testAddFavourite()
@@ -14,6 +14,14 @@
 	   	$result = addfavourite(1);
 
 	    $this->assertTrue($result !== '');
+	  }
+
+	  public function testRemoveOne()
+	  {
+	  	$_POST['favID'] = '1600';
+	  	$_COOKIE['favourites'] = json_encode(array('1600' => array('city' => 'Davis', 'state' => 'Antartica')));
+
+	  	require dirname(__DIR__).'/php_scripts/clearFavourites.php';
 	  }
 	}
 ?>
