@@ -1,18 +1,21 @@
 	<?php
 		// ********************************************************************************************************
+		// get lat and long from bom
 		foreach ($stations['observations']['data'] as $station) {
 			$latitude = $station['lat'];
 			$longitude = $station['lon'];
 		}
+		
+		// create forecast (current conditions), daily forecasts url
 		$forecast_url = 'http://api.openweathermap.org/data/2.5/weather?lat='.$latitude.'&lon='.$longitude.'&units=metric&appid=2d597f8d44eb76f4cecc1e09759fb148';
 		$daily_url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='.$latitude.'&lon='.$longitude.'&units=metric&appid=2d597f8d44eb76f4cecc1e09759fb148&cnt=16';
 		$forecastio_url = 'https://api.forecast.io/forecast/1f05fbee8b8ba738d4f50f6cc418cdcf/'.$latitude.','.$longitude;
 		
-		// forecast.io
+		// forecast.io used for timezone
 		$forecastio_string = file_get_contents($forecastio_url);
 		$forecastio = json_decode($forecastio_string, true);
 		
-		// openweathermap.org
+		// openweathermap.org current conditions
 		$forecast_string = file_get_contents($forecast_url);
 		$forecast = json_decode($forecast_string, true);
 		
@@ -26,34 +29,25 @@
 		// forecast.io temperature
 		$forecast_temp = $forecast['main']['temp'];
 		
-		// forecast.io time
+		// forecast.io & openweathermap.org time 
 		$forecast_timezone = $forecastio['timezone'];
 		date_default_timezone_set($forecast_timezone);
 		$forecast_time_epoch = $forecast['dt'];
 		$forecast_time = date('jS F Y g:ia T', $forecast_time_epoch);
 		$forecast_sunrise = date('g:ia T', $forecast['sys']['sunrise']);
 		$forecast_sunset = date('g:ia T', $forecast['sys']['sunset']);
-		
-		// forecast.io icon
-		/* FROM FORECAST.IO -> https://developer.forecast.io/docs/v2
-		 * icon: A machine-readable text summary of this data point, suitable for selecting 
-		 * an icon for display. If defined, this property will have one of the following 
-		 * values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, 
-		 * partly-cloudy-day, or partly-cloudy-night. (Developers should ensure that a 
-		 * sensible default is defined, as additional values, such as hail, thunderstorm, 
-		 * or tornado, may be defined in the future.)
-		 */
+
 		
 		$forecast_icon = $forecast['weather']['0']['icon'].'.png';
 		
 		
 		//echo '<img src="media/images/weatherIcon/'.$forecast_icon.'" alt="'.$forecast_icon_raw.'">';
 		
-		// forecast.io precipitaion probability
+		// rainfall in past hour
 		$forecast_rainfall = $forecast['rain']['1h'];
 		//echo $forecast_precipProb;
 		
-		// forecast.io humidity
+		// humidity
 		$forecast_humidity = $forecast['main']['humidity'];
 		//echo $forecast_humidity;
 		
@@ -64,18 +58,6 @@
 		$forecast_pressure = $forecast['main']['pressure'];
 		
 		echo '<p class="title_small">Current Condition</p>';
-		/*
-		echo $forecast['currently']['time'];
-		echo $forecast['currently']['summary'];
-		echo $forecast['currently']['icon'];
-		echo $forecast['currently']['precipProbability'];
-		echo $forecast['currently']['temperature'];
-		echo $forecast['currently']['humidity'];
-		echo $forecast['currently']['windSpeed'];
-		echo $forecast['currently']['windBearing'];
-		echo $forecast['currently']['cloudCover'];
-		echo $forecast['currently']['pressure'];
-		*/
 		echo '<br>';
 		echo '<p class="center">'.$forecast_summary.'</p>';
 		echo '<div id="currentConditions">';
@@ -113,33 +95,24 @@
 			$forecast_temp_min = $hourlyForecast['temp']['min'];
 			//echo $forecast_temp;
 		
-			// forecast.io time
+			// forecast.io & openweathermap.org time
 			$forecast_time_epoch = $hourlyForecast['dt'];
 			$dt = new DateTime("@$forecast_time_epoch");
 			$forecast_time = date('H:i', $forecast_time_epoch);
 			$forecast_date = date('d/m/y', $forecast_time_epoch);
 			$forecast_date_long = date('l jS F Y', $forecast_time_epoch);
 			
-			// forecast.io icon
-			/* FROM FORECAST.IO -> https://developer.forecast.io/docs/v2
-			 * icon: A machine-readable text summary of this data point, suitable for selecting 
-			 * an icon for display. If defined, this property will have one of the following 
-			 * values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, 
-			 * partly-cloudy-day, or partly-cloudy-night. (Developers should ensure that a 
-			 * sensible default is defined, as additional values, such as hail, thunderstorm, 
-			 * or tornado, may be defined in the future.)
-			 */
 		
 			$forecast_icon = $hourlyForecast['weather']['0']['icon'].'.png';
 		
 			
 			//echo '<img src="media/images/weatherIcon/'.$forecast_icon.'" alt="'.$forecast_icon_raw.'">';
 		
-			// forecast.io precipitaion probability
+			// precipitaion probability
 			$forecast_precipProb = $hourlyForecast['precipProbability'];
 			//echo $forecast_precipProb;
 		
-			// forecast.io humidity
+			// humidity
 			$forecast_humidity = $hourlyForecast['humidity'];
 			//echo $forecast_humidity;
 		

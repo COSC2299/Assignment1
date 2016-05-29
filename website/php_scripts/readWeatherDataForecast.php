@@ -1,9 +1,11 @@
 	<?php
 		// ********************************************************************************************************
+		// get latitude and longitude from bom
 		foreach ($stations['observations']['data'] as $station) {
 			$latitude = $station['lat'];
 			$longitude = $station['lon'];
 		}
+		// create url for forecast.io using lat and long
 		$forecast_url = 'https://api.forecast.io/forecast/1f05fbee8b8ba738d4f50f6cc418cdcf/'.$latitude.','.$longitude;
 	
 		// forecast.io
@@ -88,18 +90,6 @@
 		$forecast_pressure = $forecast['currently']['pressure'];
 		
 		echo '<p class="title_small">Current Condition</p>';
-		/*
-		echo $forecast['currently']['time'];
-		echo $forecast['currently']['summary'];
-		echo $forecast['currently']['icon'];
-		echo $forecast['currently']['precipProbability'];
-		echo $forecast['currently']['temperature'];
-		echo $forecast['currently']['humidity'];
-		echo $forecast['currently']['windSpeed'];
-		echo $forecast['currently']['windBearing'];
-		echo $forecast['currently']['cloudCover'];
-		echo $forecast['currently']['pressure'];
-		*/
 		echo '<br>';
 		echo '<p class="center">'.$forecast_summary.'</p>';
 		echo '<div id="currentConditions">';

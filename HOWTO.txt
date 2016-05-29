@@ -1,13 +1,23 @@
 HOW TO
 
 To view the website, visit:
-http://webdev.muthuhetti.com/sept2/
+http://webdev.muthuhetti.com/sept/
 
 
 To run on your own server:
-1. Copy all files into web server directory.
-2. Setup mySQL database.
-3. Run sql script ‘/website/sql_scripts/sept.sql’
-4. Run sql script ‘/website/sql_scripts/createWeatherDataTable.sql’
-5. Run sql script ‘/website/sql_scripts/createWeatherDataTableUPDATE.sql’
-6. Change mySQL security settings in ‘/website/php_scripts/sqlSecurity.php’
+1. Install apache web server and php 5 or above
+2. Install and configure mysql server
+3. Copy all files into web server directory.
+4. Setup new mySQL database. Sample security settings below:
+	Default:
+		$servername = "localhost";
+  		$username = "sept";
+  		$password = "sept";
+  		$dbname = "sept";
+
+5. Change mySQL security settings in ‘/website/php_scripts/sqlSecurity.php’ only if required.
+6. Import sql script ‘/website/sql_scripts/sept.sql’ into ‘sept’ database.
+7. Import sql script ‘/website/sql_scripts/createWeatherDataTable.sql’ into ‘sept’ database.
+8. Import sql script ‘/website/sql_scripts/createWeatherDataTableUPDATE.sql’ into ‘sept’ database.
+
+Please note if running on own server, an internet connection is required to retrieve data from bom.gov.au, forecast.io and openweathermap.org. 

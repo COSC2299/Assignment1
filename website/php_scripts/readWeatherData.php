@@ -78,6 +78,7 @@
 	echo '<td><a href="all_states.php">Return to States</a></td>';
 	echo '</tr>';
 	echo '<tr>';
+	// echo hyperlinks for forecast.io, openweathermap.org or bom.gov.au data
 	if ($type == 'forecast'){
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=historical';
 		$newURL2 = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=openWeatherMap';
@@ -169,12 +170,10 @@
 			$stations = json_decode($string, true);
 		
 
-		//$string = file_get_contents($url);
-		//$stations = json_decode($string, true);
-
-		//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
+		
 		echo '<br>';
 		
+		// display type of data based on get request
 		if ($type == 'forecast'){
 			include 'readWeatherDataForecast.php';
 		}

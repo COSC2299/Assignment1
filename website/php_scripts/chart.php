@@ -4,6 +4,8 @@
     <!-- CHART.JS -->
     
     <br>
+    
+    <!-- Zoom In and Zoom Out of Charts -->
     <table style='width:100%; margin:auto;'>
 		 <tr>
 			<td>

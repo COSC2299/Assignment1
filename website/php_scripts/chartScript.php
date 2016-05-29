@@ -11,6 +11,7 @@
     
     var lineChartData = {
         labels: [<?php
+        		// data labels forecast.io (Hourly Forecast)
         		if ($type == 'forecast') {
         			$breakLoop = $time;
         			foreach ($forecast['hourly']['data'] as $hourlyForecast) {
@@ -32,6 +33,7 @@
         			}
         			
         		}
+        		// data labels openweathermap.org (Daily forecasts)
         		else if ($type == 'openWeatherMap') {
         			$breakLoop = $time;
         			foreach ($forecast['list'] as $hourlyForecast) {
@@ -53,6 +55,7 @@
         			}
         			
         		}
+        		// data labels bom.gov.au (Generally half-hourly historical data)
         		else {
 					$breakLoop = $time * 2;
 					foreach ($stations['observations']['data'] as $station) {
@@ -85,6 +88,7 @@
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
             data: [<?php
+            	// data for forecast.io
             	if ($type == 'forecast'){
 						foreach ($forecast['hourly']['data'] as $hourlyForecast) {
 							switch ($data){ // depending on chart type, echo values to chart script
@@ -109,6 +113,7 @@
 						}
 						echo '0';
 					}
+					// data for openweathermap.org 
 					else if ($type == 'openWeatherMap'){
 						foreach ($forecast['list'] as $hourlyForecast) {
 							switch ($data){ // depending on chart type, echo values to chart script
@@ -132,6 +137,7 @@
 						}
 						echo '0';
 					}
+					// data for bom.gov.au (historical)
 					else{
 						foreach ($stations['observations']['data'] as $station) {
 							switch ($data){ // depending on chart type, echo values to chart script

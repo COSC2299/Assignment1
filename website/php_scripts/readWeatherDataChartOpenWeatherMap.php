@@ -14,7 +14,7 @@
 	//echo '<p><a href="state.php?s='.$selectedState.'&id='.$sID.'">Return to towns in '.$selectedState.'</a></p>';
 
   require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
-
+	// get bom links from database
   try{
 		  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 											  // set the PDO error mode to excepti
@@ -33,18 +33,20 @@
 	  {
 			echo $sql . "<br/>" . $e->getMessage();
 	  }        
-	
+	// get data from bom website
 	$string = file_get_contents($url);
 	$stations = json_decode($string, true);
 	
+	// get latitude and longitude from bom website
 	foreach ($stations['observations']['data'] as $station) {
 		$latitude = $station['lat'];
 		$longitude = $station['lon'];
 	}
-		
+	
+	// using lat and long get link for forecast data
 	$forecast_url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat='.$latitude.'&lon='.$longitude.'&units=metric&appid=2d597f8d44eb76f4cecc1e09759fb148&cnt=16';
 
-	// forecast.io
+	// forecast.io used for timezone
 	$forecast_string = file_get_contents($forecast_url);
 	$forecast = json_decode($forecast_string, true);
 	
