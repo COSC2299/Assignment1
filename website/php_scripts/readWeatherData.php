@@ -31,14 +31,14 @@
 	echo '<p class="title_large">' . $selectedCity . '</p>';
 	echo '<p class="title_medium">' . $selectedState . '</p>';
 	if ($type == 'forecast'){
-			echo '<p class="center"><a href="http://forecast.io">forecast.io</a></p>';
-		}
-		else if ($type == 'openWeatherMap'){
-			echo '<p class="center"><a href="http://openweathermap.org">openweathermap.org</a></p>';
-		}
-		else{
-			echo '<p class="center"><a href="http://bom.gov.au">bom.gov.au</a></p>';
-		}
+		echo '<p class="center"><a href="http://forecast.io">forecast.io</a></p>';
+	}
+	else if ($type == 'openWeatherMap'){
+		echo '<p class="center"><a href="http://openweathermap.org">openweathermap.org</a></p>';
+	}
+	else{
+		echo '<p class="center"><a href="http://bom.gov.au">bom.gov.au</a></p>';
+	}
 ?>
 
 	<p><a href="#" onclick="location.reload()">Refresh</a></p>

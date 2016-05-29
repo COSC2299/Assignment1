@@ -50,6 +50,15 @@
          	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Cloud%20Cover&time='.$time.'&type='.$type;?>">Cloud Cover</a></li>
          <?php
          	}
+         	else if ($type == 'openWeatherMap') {
+         ?>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature&time='.$time.'&type='.$type;?>">Temperature</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Pressure&time='.$time.'&type='.$type;?>">Pressure</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Wind%20Speed&time='.$time.'&type='.$type;?>">Wind</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Humidity&time='.$time.'&type='.$type;?>">Humidity</a></li>
+         	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Cloud%20Cover&time='.$time.'&type='.$type;?>">Cloud Cover</a></li>
+         <?php
+         	}
          	else {
          ?>
          	<li><a href="<?php echo 'city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature&time='.$time.'&type='.$type;?>">Temperature</a></li>
@@ -72,12 +81,16 @@
             		<tr>
             			<?php
             				if ($type == 'forecast'){
-            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=historical">View Forecast Charts</a></td>';
-            					echo '<td><a href="city_multi_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=historical">View Multiple Charts</a></td>';
+            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature'.'&time=12'.'&type=historical">View Historical Charts</a></td>';
+            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature'.'&time=12'.'&type=openWeatherMap">View openweathermap.org Charts</a></td>';
+            				}
+            				else if ($type == 'openWeatherMap'){
+            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature'.'&time=12'.'&type=historical">View Historical Charts</a></td>';
+            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature'.'&time=12'.'&type=forecast">View forecast.io Charts</a></td>';
             				}
             				else {
-            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Forecast Charts</a></td>';
-            					echo '<td><a href="city_multi_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Multiple Charts</a></td>';
+            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature'.'&time=12'.'&type=forecast">View forecast.io Charts</a></td>';
+            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data=Temperature'.'&time=12'.'&type=openWeatherMap">View openweathermap.org Charts</a></td>';
             				}
             			?>
             		</tr>
@@ -86,9 +99,21 @@
                
 						echo '<p class="title_large">' . $selectedCity . '</p>';
 						echo '<p class="title_medium">' . $selectedState . '</p>';
+						if ($type == 'forecast'){
+							echo '<p class="center"><a href="http://forecast.io">forecast.io</a></p>';
+						}
+						else if ($type == 'openWeatherMap'){
+							echo '<p class="center"><a href="http://openweathermap.org">openweathermap.org</a></p>';
+						}
+						else{
+							echo '<p class="center"><a href="http://bom.gov.au">bom.gov.au</a></p>';
+						}
 						
                	if ($type == 'forecast'){
                		include 'php_scripts/readWeatherDataChartForecast.php';
+               	}
+               	else if ($type == 'openWeatherMap'){
+               		include 'php_scripts/readWeatherDataChartOpenWeatherMap.php';
                	}
                	else {
                		include 'php_scripts/readWeatherDataChartHistorical.php';

@@ -21,7 +21,7 @@
 		$daily = json_decode($daily_string, true);
 		
 		//print_r($forecast);
-		//print_r($daily);
+		//print_r($daily['list']['0']);
 		
 		// forecast.io temperature
 		$forecast_temp = $forecast['main']['temp'];
