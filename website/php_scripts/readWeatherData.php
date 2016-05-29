@@ -30,6 +30,15 @@
 	echo '<br>';
 	echo '<p class="title_large">' . $selectedCity . '</p>';
 	echo '<p class="title_medium">' . $selectedState . '</p>';
+	if ($type == 'forecast'){
+		echo '<p class="center"><a href="http://forecast.io">forecast.io</a></p>';
+	}
+	else if ($type == 'openWeatherMap'){
+		echo '<p class="center"><a href="http://openweathermap.org">openweathermap.org</a></p>';
+	}
+	else{
+		echo '<p class="center"><a href="http://bom.gov.au">bom.gov.au</a></p>';
+	}
 ?>
 
 	<p><a href="#" onclick="location.reload()">Refresh</a></p>
@@ -70,8 +79,17 @@
 	
 	if ($type == 'forecast'){
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=historical';
+		$newURL2 = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=openWeatherMap';
 		echo '<p><a href="' . $newURL . '">View Historical Data</a></p>';
+		echo '<p><a href="' . $newURL2 . '">View Forecast Data from OpenWeatherMap.org</a></p>';
 		echo '<p><a href="#" onclick="displayChartForecast()">Display Charts for Forecast Data</a></p>';
+	}
+	else if ($type == 'openWeatherMap'){
+		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=historical';
+		$newURL2 = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=forecast';
+		echo '<p><a href="' . $newURL . '">View Historical Data</a></p>';
+		echo '<p><a href="' . $newURL2 . '">View Forecast Data from forecast.io</a></p>';
+		echo '<p><a href="#" onclick="displayChartOpenWeatherMap()">Display Charts for Forecast Data</a></p>';
 	}
 	else{
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=forecast';
@@ -143,10 +161,13 @@
 		//$stations = json_decode($string, true);
 
 		//echo '<strong>'.$stations['observations']['data'][0]['name'].'</strong>';
-		//echo '<br />';
+		echo '<br>';
 		
 		if ($type == 'forecast'){
 			include 'readWeatherDataForecast.php';
+		}
+		else if ($type == 'openWeatherMap'){
+			include 'readWeatherDataOpenWeatherMap.php';
 		}
 		else{
 			include 'readWeatherDataHistorical.php';
