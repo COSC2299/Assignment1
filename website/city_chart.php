@@ -72,12 +72,12 @@
             		<tr>
             			<?php
             				if ($type == 'forecast'){
-            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Forecast Charts</a></td>';
-            					echo '<td><a href="city_multi_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Multiple Charts</a></td>';
-            				}
-            				else {
             					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=historical">View Forecast Charts</a></td>';
             					echo '<td><a href="city_multi_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=historical">View Multiple Charts</a></td>';
+            				}
+            				else {
+            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Forecast Charts</a></td>';
+            					echo '<td><a href="city_multi_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Multiple Charts</a></td>';
             				}
             			?>
             		</tr>
