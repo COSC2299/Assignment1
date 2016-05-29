@@ -40,8 +40,10 @@
 		echo '<p class="center"><a href="http://bom.gov.au">bom.gov.au</a></p>';
 	}
 ?>
-
-	<p><a href="#" onclick="location.reload()">Refresh</a></p>
+	<br>
+	<table style='width:100%; margin:auto; table-layout:fixed;'>
+	<tr>
+	<td><a href="#" onclick="location.reload()">Refresh</a></td>
 
 <?php
 	$favList = array();
@@ -60,41 +62,51 @@
 	if(!$exists) // if it doesn't exist, add to array
 	{
 ?>
-		<p><a href="#" onclick="fav('<?php echo str_replace("'", "&#146;", $selectedCity); ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Station</a></p>
+		<td><a href="#" onclick="fav('<?php echo str_replace("'", "&#146;", $selectedCity); ?>', '<?php echo $selectedState ?>', '<?php echo $id ?>')">Favourite This Station</a></td>
 <?php
 	}
 	else{
-		echo '<p><a href="#" onclick="clearFav('.$favID.')">Unfavourite This Station</a></p>'; // create unfavourite button
+		echo '<td><a href="#" onclick="clearFav('.$favID.')">Unfavourite This Station</a></td>'; // create unfavourite button
 	}
-	echo '<br>';
+	echo '</tr>';
 ?>
 
 
-
 <?php
-   echo '<p><a href="all_states.php">Return to States</a></p>';
-	echo '<p><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to Stations in '.$selectedState.'</a></p>';
-	
-	echo '<br>';
-	
+	echo '<tr>';
+	echo '<td><a href="state.php?s='.$stateURL.'&id='.$sID.'">Return to Stations in '.$selectedState.'</a></td>';
+	echo '<td><a href="all_states.php">Return to States</a></td>';
+	echo '</tr>';
+	echo '<tr>';
 	if ($type == 'forecast'){
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=historical';
 		$newURL2 = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=openWeatherMap';
-		echo '<p><a href="' . $newURL . '">View Historical Data</a></p>';
-		echo '<p><a href="' . $newURL2 . '">View Forecast Data from OpenWeatherMap.org</a></p>';
-		echo '<p><a href="#" onclick="displayChartForecast()">Display Charts for Forecast Data</a></p>';
+		echo '<td><a href="' . $newURL . '">View Historical Data from bom.gov.au</a></td>';
+		echo '<td><a href="' . $newURL2 . '">View Forecast Data from openweathermap.org</a></td>';
+		echo '</tr>';
+		echo '</table>';
+		echo '<br>';
+		echo '<p class="center"><a href="#" onclick="displayChartForecast()">Display Charts for Forecast Data</a></p>';
 	}
 	else if ($type == 'openWeatherMap'){
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=historical';
 		$newURL2 = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=forecast';
-		echo '<p><a href="' . $newURL . '">View Historical Data</a></p>';
-		echo '<p><a href="' . $newURL2 . '">View Forecast Data from forecast.io</a></p>';
-		echo '<p><a href="#" onclick="displayChartOpenWeatherMap()">Display Charts for Forecast Data</a></p>';
+		echo '<td><a href="' . $newURL . '">View Historical Data from bom.gov.au</a></td>';
+		echo '<td><a href="' . $newURL2 . '">View Forecast Data from forecast.io</a></td>';
+		echo '</tr>';
+		echo '</table>';
+		echo '<br>';
+		echo '<p class="center"><a href="#" onclick="displayChartOpenWeatherMap()">Display Charts for Forecast Data</a></p>';
 	}
 	else{
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=forecast';
-		echo '<p><a href="' . $newURL . '">View Forecast</a></p>';
-		echo '<p><a href="#" onclick="displayChartHistorical()">Display Charts for Historical Data</a></p>';
+		$newURL2 = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=openWeatherMap';
+		echo '<td><a href="' . $newURL . '">View Forecast from forecast.io</a></td>';
+		echo '<td><a href="' . $newURL2 . '">View Forecast Data from OpenWeatherMap.org</a></td>';
+		echo '</tr>';
+		echo '</table>';
+		echo '<br>';
+		echo '<p class="center"><a href="#" onclick="displayChartHistorical()">Display Charts for Historical Data</a></p>';
 	}
 	
 	if(isset($id))
