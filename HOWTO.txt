@@ -1,7 +1,7 @@
 HOW TO
 
 To view the website, visit:
-http://webdev.muthuhetti.com/sept/
+http://webdev.muthuhetti.com/sept2/
 
 
 To run on your own server:
