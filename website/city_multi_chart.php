@@ -68,25 +68,10 @@
          <div id="main_content_chart">
             <div id="main_content_text">
             	<br>
-            	<table style="width:100%; margin:auto; table-layout:fixed;">
-            		<tr>
-            			<?php
-            				if ($type == 'forecast'){
-            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Forecast Charts</a></td>';
-            					echo '<td><a href="city_multi_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=forecast">View Multiple Charts</a></td>';
-            				}
-            				else {
-            					echo '<td><a href="city_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=historical">View Forecast Charts</a></td>';
-            					echo '<td><a href="city_multi_chart.php?c='.$selectedCity.'&s='.$selectedState.'&id='.$id.'&sID='.$sID.'&data='.$data.'&time='.$time.'&type=historical">View Multiple Charts</a></td>';
-            				}
-            			?>
-            		</tr>
-            	</table>
                <?php 
-               
 						echo '<p class="title_large">' . $selectedCity . '</p>';
 						echo '<p class="title_medium">' . $selectedState . '</p>';
-						
+
                	if ($type == 'forecast'){
                		include 'php_scripts/readWeatherDataChartForecast.php';
                	}

@@ -37,7 +37,7 @@
                   	$favs = json_decode($_COOKIE['favourites'], true);
                   	
                   	if (count($favs) != 0){
-                  	   echo '<table border="0" style="width:90%; margin:auto;">';
+                  	   echo '<table border="0" style="width:90%; margin:auto; table-layout: fixed;">';
                   		echo '<tr>';
 								echo '<th>Station</th>';
 								echo '<th>State</th>';
