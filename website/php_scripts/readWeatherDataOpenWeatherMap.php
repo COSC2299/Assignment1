@@ -30,7 +30,7 @@
 		$forecast_timezone = $forecastio['timezone'];
 		date_default_timezone_set($forecast_timezone);
 		$forecast_time_epoch = $forecast['dt'];
-		$forecast_time = date('l jS F Y g:ia T', $forecast_time_epoch);
+		$forecast_time = date('jS F Y g:ia T', $forecast_time_epoch);
 		$forecast_sunrise = date('g:ia T', $forecast['sys']['sunrise']);
 		$forecast_sunset = date('g:ia T', $forecast['sys']['sunset']);
 		
@@ -76,21 +76,22 @@
 		echo $forecast['currently']['cloudCover'];
 		echo $forecast['currently']['pressure'];
 		*/
-		echo '<div>';
+		echo '<br>';
+		echo '<p class="center">'.$forecast_summary.'</p>';
+		echo '<div id="currentConditions">';
+		echo '<div id="currentConditionImg">';
 		echo '<img src="media/images/weatherIcon/'.$forecast_icon.'" alt="'.$forecast_icon.'">';
-		echo '<p>'.$forecast_summary.'</p>';
 		echo '</div>';
-		echo '<div>';
-		echo '<p> Temperature: '.$forecast_temp.'&deg;C</p>';
-		echo '<p>Rainfall: '.$forecast_rainfall.'</p>';
+		echo '<div id="currentConditionText">';
+		echo '<p>Temperature: '.$forecast_temp.'&deg;C</p>';
 		echo '<p>Humidity: '.$forecast_humidity.'%</p>';
 		echo '<p>Wind Speed: '.$forecast_windSpeed.' km/h</p>';
 		echo '<p>Wind Bearing: '.$forecast_windBearing.'&deg;</p>';
 		echo '<p>Cloud Cover: '.$forecast_cloudCover.'%</p>';
-		echo '<p>Pressure: '.$forecast_pressure.' hPa</p>';
-		echo '<p>Last Updated: '.$forecast_time.'</p>';
 		echo '<p>Sunrise: '.$forecast_sunrise.'</p>';
 		echo '<p>Sunset: '.$forecast_sunset.'</p>';
+		echo '<p>Last Updated: '.$forecast_time.'</p>';
+		echo '</div>';
 		echo '</div>';
 		//print_r($forecast['hourly']);
 		//print_r($stations['observations']['data']);

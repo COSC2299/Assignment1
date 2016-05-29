@@ -200,6 +200,31 @@ a:active {
 }
 /* End Main Content */
 
+/* Current Condition */
+
+#currentConditions{
+	width: 800px;
+	height: 300px;
+	position: relative;
+	margin: auto;
+}
+
+#currentConditionText{
+	position: relative;
+	text-align: center;
+	margin-top: 30px;
+	margin-left: 100px;
+	float: left;
+}
+
+#currentConditionImg{
+	position: relative;
+	text-align: center;
+	float: left;
+}
+
+/* End Current Condition */
+
 /* Side Bar */
 
 #sidebar{

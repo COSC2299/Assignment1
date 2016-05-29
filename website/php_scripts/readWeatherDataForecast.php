@@ -19,7 +19,7 @@
 		$forecast_timezone = $forecast['timezone'];
 		date_default_timezone_set($forecast_timezone);
 		$forecast_time_epoch = $forecast['currently']['time'];
-		$forecast_time = date('l jS F Y g:ia T', $forecast_time_epoch);
+		$forecast_time = date('jS F Y g:ia T', $forecast_time_epoch);
 		
 		// forecast.io icon
 		/* FROM FORECAST.IO -> https://developer.forecast.io/docs/v2
@@ -100,11 +100,13 @@
 		echo $forecast['currently']['cloudCover'];
 		echo $forecast['currently']['pressure'];
 		*/
-		echo '<div>';
+		echo '<br>';
+		echo '<p class="center">'.$forecast_summary.'</p>';
+		echo '<div id="currentConditions">';
+		echo '<div id="currentConditionImg">';
 		echo '<img src="media/images/weatherIcon/'.$forecast_icon.'" alt="'.$forecast_icon_raw.'">';
-		echo '<p>'.$forecast_summary.'</p>';
 		echo '</div>';
-		echo '<div>';
+		echo '<div id="currentConditionText">';
 		echo '<p> Temperature: '.$forecast_temp.'&deg;C</p>';
 		echo '<p>Precipitation Probability: '.$forecast_precipProb.'%</p>';
 		echo '<p>Humidity: '.$forecast_humidity.'%</p>';
@@ -112,7 +114,8 @@
 		echo '<p>Wind Bearing: '.$forecast_windBearing.'&deg;</p>';
 		echo '<p>Cloud Cover: '.$forecast_cloudCover.'%</p>';
 		echo '<p>Pressure: '.$forecast_pressure.'mBar</p>';
-		echo '<p>Time: '.$forecast_time.'</p>';
+		echo '<p>Last Updated: '.$forecast_time.'</p>';
+		echo '</div>';
 		echo '</div>';
 		//print_r($forecast['hourly']);
 		//print_r($stations['observations']['data']);
