@@ -89,7 +89,7 @@
 		$newURL2 = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=forecast';
 		echo '<p><a href="' . $newURL . '">View Historical Data</a></p>';
 		echo '<p><a href="' . $newURL2 . '">View Forecast Data from forecast.io</a></p>';
-		echo '<p><a href="#" onclick="displayChartForecast()">Display Charts for Forecast Data</a></p>';
+		echo '<p><a href="#" onclick="displayChartOpenWeatherMap()">Display Charts for Forecast Data</a></p>';
 	}
 	else{
 		$newURL = basename($_SERVER['PHP_SELF']) . '?c=' . str_replace(" ", "%20", $selectedCity) . '&s=' . $selectedState . '&id=' . $id . '&type=forecast';

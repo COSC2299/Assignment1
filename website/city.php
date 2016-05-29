@@ -56,12 +56,17 @@
                ?>
             <script>
             	function displayChartHistorical(){
-      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&data=Temperature&time=0&type=historical';?>', 'chartWindow', 'width=1300, height=1000'); 
+      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&data=Temperature&time=12&type=historical';?>', 'chartWindow', 'width=1300, height=1000'); 
       				localStorage.setItem('chartWindow', chartWindow);
       				return false;
       			}
       			function displayChartForecast(){
-      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&data=Temperature&time=0&type=forecast';?>', 'chartWindow', 'width=1300, height=1000'); 
+      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&data=Temperature&time=12&type=forecast';?>', 'chartWindow', 'width=1300, height=1000'); 
+      				localStorage.setItem('chartWindow', chartWindow);
+      				return false;
+      			}
+      			function displayChartOpenWeatherMap(){
+      				chartWindow = window.open('<?php echo 'city_chart.php?c='.$cityURL.'&s='.$stateURL.'&id='.$id.'&sID='.$sID.'&data=Temperature&time=12&type=openWeatherMap';?>', 'chartWindow', 'width=1300, height=1000'); 
       				localStorage.setItem('chartWindow', chartWindow);
       				return false;
       			}
