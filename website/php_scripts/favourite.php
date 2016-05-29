@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	//session_start();
 	
 	$fav = $_POST['city']; // get city
 	$state = $_POST['state'];	//get state
@@ -31,54 +31,81 @@
 		$_SESSION['attentionBarText'] = $fav.', '.$state.' has already been added to your favourites.';
 	}
 		
-	print_r($favList);
+	//print_r($favList);
 	//$_COOKIE['favourites'] = $favList;
-	print_r(json_decode(json_encode($favList)), true);
+	//print_r(json_decode(json_encode($favList)), true);
 
-	require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
-	try{
-	        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-	                                   // set the PDO error mode to excepti
-	        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	addfavourite($id);
 
-	        $sql = 'SELECT url FROM city WHERE id = '.$id;
+	function addfavourite($id)
+	{
+		require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
+		try{
+		        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+		                                   // set the PDO error mode to excepti
+		        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	           
-	        foreach ($conn->query($sql) as $row) {
-	            $url = $row['url'];
-	        }
-	           
-			$string = file_get_contents($url);
-			$weather = json_decode($string, true);
+		       $url = getCityURL($id);
+		        
+		        if(isset($url) && $url != '')
+			    {
+					$string = file_get_contents($url);
+					$weather = json_decode($string, true);
 
-			foreach ($weather['observations']['data'] as $reading) {
-		
-				$sql = "INSERT IGNORE INTO weatherdata (city_id, temp, t_datetime, cloud, rain, w_dir, w_speed, w_gust, pressure, humiditiy) 
-												VALUES (:city_id, :temp, :t_datetime, :cloud, :rain, :w_dir, :w_speed, :w_gust, :pressure, :humidity)";
+					foreach ($weather['observations']['data'] as $reading) {
+				
+						$sql = "INSERT IGNORE INTO weatherdata (city_id, temp, t_datetime, cloud, rain, w_dir, w_speed, w_gust, pressure, humiditiy) 
+														VALUES (:city_id, :temp, :t_datetime, :cloud, :rain, :w_dir, :w_speed, :w_gust, :pressure, :humidity)";
 
-				    $sth = $conn->prepare($sql);
+						    $sth = $conn->prepare($sql);
 
-				    $sth->bindParam(':city_id', intval($id), PDO::PARAM_INT);
-				    $sth->bindParam(':temp', $reading['air_temp'], PDO::PARAM_STR, 12);
-				    $sth->bindParam(':t_datetime', $reading['local_date_time_full'], PDO::PARAM_STR, 12);
-				    $sth->bindParam(':cloud', $reading['cloud'], PDO::PARAM_STR, 12);
-				    $sth->bindParam(':rain', $reading['rain_trace'], PDO::PARAM_STR, 12);
-				    $sth->bindParam(':w_dir', $reading['wind_dir'], PDO::PARAM_STR, 12);
-				    $sth->bindParam(':w_speed', intval($reading['wind_spd_kmh']), PDO::PARAM_INT);
-				    $sth->bindParam(':w_gust', intval($reading['gust_kmh']), PDO::PARAM_INT);
-				    $sth->bindParam(':pressure', $reading['press'], PDO::PARAM_STR, 12);
-				    $sth->bindParam(':humidity', intval($reading['rel_hum']), PDO::PARAM_INT);
-			    
+						    $sth->bindParam(':city_id', (intval($id)), PDO::PARAM_INT);
+						    $sth->bindParam(':temp', $reading['air_temp'], PDO::PARAM_STR, 12);
+						    $sth->bindParam(':t_datetime', $reading['local_date_time_full'], PDO::PARAM_STR, 12);
+						    $sth->bindParam(':cloud', $reading['cloud'], PDO::PARAM_STR, 12);
+						    $sth->bindParam(':rain', $reading['rain_trace'], PDO::PARAM_STR, 12);
+						    $sth->bindParam(':w_dir', $reading['wind_dir'], PDO::PARAM_STR, 12);
+						    $sth->bindParam(':w_speed', (intval($reading['wind_spd_kmh'])), PDO::PARAM_INT);
+						    $sth->bindParam(':w_gust', (intval($reading['gust_kmh'])), PDO::PARAM_INT);
+						    $sth->bindParam(':pressure', $reading['press'], PDO::PARAM_STR, 12);
+						    $sth->bindParam(':humidity', (intval($reading['rel_hum'])), PDO::PARAM_INT);
+					    
 
-			    $sth->execute();
+					    $sth->execute();
 
-			    $lastId = $conn->lastInsertId();
+					    $lastId = $conn->lastInsertId();
+
+					}
+				}
+
+	   	}
+		catch(PDOException $e)
+		{
+		    echo $sql . "<br/>" . $e->getMessage();
+		}
+
+	}
+
+	function getCityURL($id) 
+	{
+		require dirname(__DIR__).'/php_scripts/sqlSecurity.php';
+		try{
+			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			
+			$sql = 'SELECT url FROM city WHERE id = '.$id;
+
+			$url = '';
+			foreach ($conn->query($sql) as $row) {
+			    $url = $row['url'];
 
 			}
-
-   	}
-	catch(PDOException $e)
-	{
-	    echo $sql . "<br/>" . $e->getMessage();
+			return $url;
+		}
+		catch(PDOException $e)
+		{
+		    echo $sql . "<br/>" . $e->getMessage();
+		}
 	}
 ?>
